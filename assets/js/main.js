@@ -39,7 +39,8 @@
       var target = sections[idx];
       if(!target) return;
       var left = target.offsetLeft;
-      track.scrollTo({ left: left, behavior: 'smooth' });
+      // Use instant scroll for faster response
+      track.scrollTo({ left: left, behavior: 'auto' });
     }
     sections.forEach(function(sec, i){
       var prev = sec.querySelector('.hero-arrow.prev');
@@ -64,7 +65,7 @@
     if(typeof Isotope === 'undefined') return;
     var grid = document.querySelector('.event_box');
     if(!grid) return;
-    var iso = new Isotope(grid, { itemSelector: '.event_outer', layoutMode: 'fitRows' });
+  var iso = new Isotope(grid, { itemSelector: '.event_outer', layoutMode: 'fitRows', transitionDuration: 150 });
     document.querySelectorAll('.event_filter a').forEach(function(btn){
       btn.addEventListener('click', function(e){
         e.preventDefault();
