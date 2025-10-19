@@ -34,6 +34,7 @@
     var track = document.querySelector('.main-banner .hero-track');
     var sections = Array.prototype.slice.call(document.querySelectorAll('.main-banner .hero-block'));
     if(!track || sections.length === 0) return;
+    var isSmall = window.matchMedia && window.matchMedia('(max-width: 576px)').matches;
     function scrollToIndex(idx){
       var target = sections[idx];
       if(!target) return;
@@ -49,9 +50,11 @@
       if(next){
         next.addEventListener('click', function(){ scrollToIndex(Math.min(sections.length-1, i+1)); });
       }
-      // Disable arrows at edges
-      if(prev && i === 0){ prev.classList.add('disabled'); prev.setAttribute('disabled','disabled'); }
-      if(next && i === sections.length-1){ next.classList.add('disabled'); next.setAttribute('disabled','disabled'); }
+      // On larger screens, visually disable at edges; on phones keep tappable for consistency
+      if(!isSmall){
+        if(prev && i === 0){ prev.classList.add('disabled'); prev.setAttribute('disabled','disabled'); }
+        if(next && i === sections.length-1){ next.classList.add('disabled'); next.setAttribute('disabled','disabled'); }
+      }
     });
   }
   window.addEventListener('load', initHeroArrows);
