@@ -11,7 +11,7 @@
 
   // Smooth scroll and active link highlighting
   function setActiveLink(){
-    var sections = ['top','vision-block','events','videos','programs','team','tools','contact'];
+    var sections = ['top','vision-block','events','videos','programs','research','grants','team','tools','contact'];
     var scrollPos = window.scrollY + 100;
     sections.forEach(function(id){
       var sec = document.getElementById(id);
@@ -28,6 +28,20 @@
   }
   window.addEventListener('scroll', setActiveLink);
   window.addEventListener('load', setActiveLink);
+
+  // Back to top button
+  (function(){
+    var btn = null;
+    function onScroll(){
+      if(!btn){ btn = document.getElementById('backToTop'); }
+      if(!btn) return;
+      if(window.scrollY > 400){ btn.classList.add('show'); } else { btn.classList.remove('show'); }
+    }
+    function toTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll);
+    document.addEventListener('DOMContentLoaded', function(){ var b = document.getElementById('backToTop'); if(b){ b.addEventListener('click', toTop); } });
+  })();
 
   // Hero arrow navigation between stacked hero blocks
   function initHeroArrows(){
