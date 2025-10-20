@@ -50,6 +50,14 @@
   .navbar-brand { display: inline-flex; align-items: center; gap: 10px; }
   .navbar-brand .logo-img { height: 34px; width: auto; display: inline-block; border-radius: 6px; object-fit: contain; }
   @media (max-width: 576px) { .navbar-brand .logo-img { height: 30px; } }
+  /* Prevent navbar wrap on large screens by tightening spacing */
+  @media (min-width: 992px) {
+    .navbar .container { padding-left: 8px; padding-right: 8px; }
+    .navbar-brand { gap: 8px; margin-right: 8px; }
+    .navbar-brand .brand-text { font-size: 1.05rem; }
+    .navbar-dark .navbar-nav { flex-wrap: nowrap; gap: 2px; }
+    .navbar-dark .navbar-nav .nav-link { font-size: 0.95rem; padding: 0.4rem 0.55rem; white-space: nowrap; }
+  }
 
       /* Main Banner */
   .main-banner .item-1, .main-banner .item-2, .main-banner .item-3 { background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-orange) 100%) !important; color: #fff !important; }
@@ -319,6 +327,7 @@
               <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
               <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
               <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+              <li class="nav-item"><a class="nav-link" href="news.html">News &amp; Blog</a></li>
               <li class="nav-item"><a class="nav-link" href="#team">Leadership</a></li>
               <li class="nav-item"><a class="nav-link" href="#tools">AI Tools</a></li>
               <li class="nav-item"><a class="nav-link" href="#research">Research &amp; Publications</a></li>
@@ -792,13 +801,6 @@
             <p class="meta">Bismark Nyaaba Akanzire; Matthew Nyaaba; Macharious Nabang</p>
             <a class="stretched-link" href="https://doi.org/10.30935/jdet/15887" target="_blank" rel="noopener" aria-label="Read JDET article"></a>
           </div>
-          <div class="resource-card reveal-up" style="--reveal-delay:.12s" role="link" tabindex="0" onclick="this.querySelector('a.stretched-link').click();" onkeydown="if(event.key==='Enter' || event.key===' '){ event.preventDefault(); this.querySelector('a.stretched-link').click(); }">
-            <span class="badge">Call</span>
-            <h5>Spencer Research‑Practice Partnerships (RPP) Program</h5>
-            <p class="meta">Up to $400,000 · up to 3 years · Pre‑proposal once per year</p>
-            <p>Applications Open: Sept 30, 2025 · Pre‑Proposal: Nov 14, 2025 (Noon CT) · Full Proposal (by invitation): Mar 31, 2026 (Noon CT). Program contact: Maricelle Garcia · research-practice-partnership@spencer.org</p>
-            <a class="stretched-link" href="https://www.spencer.org/grant_types/research-practice-partnerships" target="_blank" rel="noopener" aria-label="View Spencer RPP program"></a>
-          </div>
         </div>
       </div>
     </section>
@@ -820,6 +822,12 @@
             <h5>ip Program – Application Form 2025</h5>
             <p>She Code Africa, with Grow with Google and Coursera, offers 100% scholarships for African girls and women across: Prompting Essentials, AI Essentials, Cybersecurity, Data Analytics, Digital Marketing &amp; E‑commerce, IT Support, Project Management, and UX Design (24‑week program with Coursera Career Certificate).</p>
             <a class="stretched-link" href="https://docs.google.com/forms/d/e/1FAIpQLSec3EMPxjsYqyNp9p1g9gwPhaNM-aSonZ_LbwbZNTgKnjZTpg/viewform" target="_blank" rel="noopener" aria-label="Apply to She Code Africa scholarship program"></a>
+          </div>
+          <div class="resource-card reveal-up" style="--reveal-delay:.12s" role="link" tabindex="0" onclick="this.querySelector('a.stretched-link').click();" onkeydown="if(event.key==='Enter' || event.key===' '){ event.preventDefault(); this.querySelector('a.stretched-link').click(); }">
+            <span class="badge">Grant</span>
+            <h5>Spencer Research‑Practice Partnerships (RPP) Program</h5>
+            <p>Supports long‑term research partnerships that improve education practice and equity. Awards up to $400,000 for up to 3 years; pre‑proposal required.</p>
+            <a class="stretched-link" href="https://www.spencer.org/grant_types/research-practice-partnerships" target="_blank" rel="noopener" aria-label="View Spencer Research‑Practice Partnerships grant"></a>
           </div>
         </div>
       </div>
