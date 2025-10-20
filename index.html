@@ -88,6 +88,8 @@
       .board-member .team-member-card img { border: 4px solid var(--brand-navy); width: 140px; height: 140px; }
       .board-member .team-member-card h4 { font-size: 22px; }
       .executive-member .team-member-card { border: 2px solid var(--brand-orange); }
+  /* Make executive frames same size as board */
+  .executive-member .team-member-card img { width: 140px; height: 140px; }
   /* Make entire event cards clickable when a stretched-link exists */
   .event-card { position: relative; }
       .social-icons { display: flex; justify-content: center; gap: 10px; padding-left: 0; margin: 0; list-style: none; }
@@ -155,6 +157,8 @@
       .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
   .tool-item { background: var(--brand-white); border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.2s ease; }
       .tool-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .tool-item a.tool-link { display: block; color: inherit; text-decoration: none; }
+    .tool-item a.tool-link:focus-visible { outline: 2px solid var(--brand-orange); outline-offset: 3px; border-radius: 8px; }
       .tool-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--brand-orange), #ff6b35); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-weight: 700; }
 
       /* Programs Filter */
@@ -200,6 +204,7 @@
         .professional-tabs .nav-link { padding: 10px 15px; font-size: 14px; }
         .team-member-card img { width: 100px; height: 100px; }
         .board-member .team-member-card img { width: 120px; height: 120px; }
+        .executive-member .team-member-card img { width: 120px; height: 120px; }
       }
   /* Preloader fallback */
   .js-preloader.loaded { opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility 0s linear .3s; }
@@ -628,15 +633,15 @@
           <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-04.jpg" alt="Dr. Patrick Kyeremeh" /><h4>Dr. Patrick Kyeremeh</h4><div class="position">Research Director</div><div class="location">St. Joseph's College of Education, Ghana</div><div class="description">Leading research initiatives, scholarly publications, and coordinating collaborative projects in AI‑enhanced education.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/patrick-kyeremeh-phd-b0a291159?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Patrick Kyeremeh on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
 
           <!-- Remaining Executive Members -->
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dr-quarshie-ghana.jpg" alt="Dr. Quarshie" /><h4>Dr. Benjamin Quarshie (Ghana)</h4><div class="position">Research &amp; Grants Director</div><div class="location">Ghana</div><div class="description">Securing funding, managing research portfolios, and developing sustainable grant strategies for AI education initiatives.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/benjamin-quarshie-376b6380?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Benjamin Quarshie on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/craig-gibbs-south-africa.jpg" alt="Craig Gibbs" /><h4>Craig Gibbs (South Africa)</h4><div class="position">Deputy Research and Grant</div><div class="location">South Africa</div><div class="description">Coordinating research activities, documentation, and stakeholder communications; supporting grant pipelines and reporting.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/craig-gibbs-8b4b5b116?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Craig Gibbs on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/vanessa-willemse-south-africa.jpg" alt="Vanessa Willemse" /><h4>Vanessa Willemse (South Africa)</h4><div class="position">Director, International Relations</div><div class="location">South Africa</div><div class="description">Building international partnerships and coordinating cross‑border programs that expand GenAI‑ERA's global footprint.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/vanessa-willemse-64b02aa2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Vanessa Willemse on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/saeed-maigari-nigeria.jpg" alt="Dr. Saeed Maigari" /><h4>Dr. Saeed Maigari (Nigeria)</h4><div class="position">Assistant Director, International Relations</div><div class="location">Nigeria</div><div class="description">Supporting international collaborations, MOUs, and exchange activities with universities and NGOs.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/engr-dr-saeed-maigari-8276963a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_apptm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Saeed Maigari on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dr-quarshie-ghana.jpg" alt="Dr. Quarshie" /><h4>Dr. Benjamin Quarshie</h4><div class="position">Research &amp; Grants Director</div><div class="location">Mampong technical college of Education, Ghana</div><div class="description">Securing funding, managing research portfolios, and developing sustainable grant strategies for AI education initiatives.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/benjamin-quarshie-376b6380?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Benjamin Quarshie on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/craig-gibbs-south-africa.jpg" alt="Craig Gibbs" /><h4>Craig Gibbs</h4><div class="position">Deputy Research and Grant</div><div class="location">JET Education Services, South Africa</div><div class="description">Coordinating research activities, documentation, and stakeholder communications; supporting grant pipelines and reporting.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/craig-gibbs-8b4b5b116?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Craig Gibbs on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/vanessa-willemse-south-africa.jpg" alt="Vanessa Willemse" /><h4>Vanessa Willemse</h4><div class="position">Director, International Relations</div><div class="location">Northern Cape Provincial Teacher Development Institute, South Africa</div><div class="description">Building international partnerships and coordinating cross‑border programs that expand GenAI‑ERA's global footprint.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/vanessa-willemse-64b02aa2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Vanessa Willemse on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/saeed-maigari-nigeria.jpg" alt="Dr. Saeed Maigari" /><h4>Dr. Saeed Maigari</h4><div class="position">Assistant Director, International Relations</div><div class="location">Federal University of Transportation, Nigeria</div><div class="description">Supporting international collaborations, MOUs, and exchange activities with universities and NGOs.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/engr-dr-saeed-maigari-8276963a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_apptm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Saeed Maigari on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
 
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dorcas-adomina-ghana.jpg" alt="Dorcas Adomina" /><h4>Dorcas Adomina (Ghana)</h4><div class="position">Director, Equity &amp; Inclusion</div><div class="location">Ghana</div><div class="description">Embedding equity, accessibility, and inclusion across programs; leading DEI audits and guidelines.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/adomina-dorcas-687698259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dorcas Adomina on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/ellen-kwarteng-ghana.jpg" alt="Ellen Kwarteng" /><h4>Ellen Kwarteng (Ghana)</h4><div class="position">Program Manager</div><div class="location">Ghana</div><div class="description">Operational oversight of events, webinars, and PD cohorts; monitoring KPIs and reporting.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/ellen-kwarteng-b34551ek4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Ellen Kwarteng on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dorcas-adomina-ghana.jpg" alt="Dorcas Adomina" /><h4>Dorcas Adomina</h4><div class="position">Director, Equity &amp; Inclusion</div><div class="location">Ghana</div><div class="description">Embedding equity, accessibility, and inclusion across programs; leading DEI audits and guidelines.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/adomina-dorcas-687698259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dorcas Adomina on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/ellen-kwarteng-ghana.jpg" alt="Ellen Kwarteng" /><h4>Ellen Kwarteng</h4><div class="position">Program Manager</div><div class="location">St Joseph's College of Education, Ghana</div><div class="description">Operational oversight of events, webinars, and PD cohorts; monitoring KPIs and reporting.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/ellen-kwarteng-b34551ek4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Ellen Kwarteng on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <!-- Finance & Operations Lead card removed per request -->
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/sechema-koma-lesotho.jpg" alt="Sechema Koma" /><h4>Sechema Koma (Lesotho)</h4><div class="position">Communications &amp; Partnerships Lead</div><div class="location">Lesotho</div><div class="description">Media relations, stakeholder engagement, and partnership pipelines across regions.</div></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/sechema-koma-lesotho.jpg" alt="Sechaba Nephtally Koma" /><h4>Sechaba Nephtally Koma</h4><div class="position">Teaching,Learning &amp; Innovation Lead</div><div class="location">The National University of Lesotho, Lesotho</div><div class="description">Media relations, stakeholder engagement, and partnership pipelines across regions.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/sechaba-nephtally-koma-466a1014b/?originalSubdomain=ls" target="_blank" rel="noopener" aria-label="Sechaba Nephtally Koma on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
         </div>
         <p class="text-center text-muted mt-2">Thanks for your commitments. <code>You are making a great impact in Africa</code> Your achievements do not go unnoticed.</p>
       </div>
@@ -648,10 +653,34 @@
       <div class="container">
         <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>AI Tools</h6><h2>Platforms We Build &amp; Use</h2></div></div></div>
         <div class="tools-grid">
-          <div class="tool-item"><div class="tool-icon">CRLP</div><h5>Culturally Responsive Lesson Planner</h5><p>Interactive, theory‑grounded lesson planning with required cultural slots (language, locale, assets, representation).</p></div>
-          <div class="tool-item"><div class="tool-icon">CRSciA</div><h5>CR Science Assessment Generator</h5><p>Generates and refines culturally responsive science items with rubric‑guided validation.</p></div>
-          <div class="tool-item"><div class="tool-icon">Voice</div><h5>Teacher Voice Agent</h5><p>Voice‑first assistant for quick planning, translations, and context‑aware Q&amp;A.</p></div>
-          <div class="tool-item"><div class="tool-icon">RAG</div><h5>Curriculum RAG Portal</h5><p>Retrieval‑augmented access to local curricula, benchmarks, and exemplars.</p></div>
+          <div class="tool-item">
+            <a class="tool-link" href="https://chatgpt.com/g/g-ei2C8xiFM-culturally-responsive-lesson-planner-crlp" target="_blank" rel="noopener" aria-label="Open Culturally Responsive Lesson Planner (CRLP)">
+              <div class="tool-icon">CRLP</div>
+              <h5>Culturally Responsive Lesson Planner</h5>
+              <p>Interactive, theory‑grounded lesson planning with required cultural slots (language, locale, assets, representation).</p>
+            </a>
+          </div>
+          <div class="tool-item">
+            <a class="tool-link" href="https://chatgpt.com/g/g-vAYgx3lLs-culturally-responsive-science-assessment-generator" target="_blank" rel="noopener" aria-label="Open CR Science Assessment Generator">
+              <div class="tool-icon">CRSciA</div>
+              <h5>CR Science Assessment Generator</h5>
+              <p>Generates and refines culturally responsive science items with rubric‑guided validation.</p>
+            </a>
+          </div>
+          <div class="tool-item">
+            <a class="tool-link" href="https://youtu.be/XkeO_Jr1f5A" target="_blank" rel="noopener" aria-label="Watch Teacher Voice Agent video on YouTube">
+              <div class="tool-icon">Voice</div>
+              <h5>Teacher Voice Agent</h5>
+              <p>Voice‑first assistant for quick planning, translations, and context‑aware Q&amp;A.</p>
+            </a>
+          </div>
+          <div class="tool-item">
+            <a class="tool-link" href="https://chatgpt.com/g/g-Fs5wk2FsM-inductive-thematic-analysis" target="_blank" rel="noopener" aria-label="Open Inductive Thematic Analysis tool">
+              <div class="tool-icon">ITA</div>
+              <h5>Inductive Thematic Analysis</h5>
+              <p>Supports qualitative coding and theme development from raw data, guiding codebook creation and transparent analysis workflows.</p>
+            </a>
+          </div>
         </div>
       </div>
     </section>
