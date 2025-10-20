@@ -16,7 +16,11 @@ if ($py) { $pycmd = 'python' } else {
 if ($pycmd) {
   Write-Host "Starting local server on http://localhost:$Port (Python)" -ForegroundColor Cyan
   & $pycmd -m http.server $Port
-  return
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "Python server failed to start. Falling back to PowerShell server..." -ForegroundColor Yellow
+  } else {
+    return
+  }
 }
 
 # Fallback: lightweight PowerShell static file server (HttpListener)

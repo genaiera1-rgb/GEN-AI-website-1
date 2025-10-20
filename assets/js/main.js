@@ -11,7 +11,7 @@
 
   // Smooth scroll and active link highlighting
   function setActiveLink(){
-    var sections = ['top','vision-block','programs','team','tools','events','contact'];
+    var sections = ['top','vision-block','events','videos','programs','team','tools','contact'];
     var scrollPos = window.scrollY + 100;
     sections.forEach(function(id){
       var sec = document.getElementById(id);
@@ -34,7 +34,6 @@
     var track = document.querySelector('.main-banner .hero-track');
     var sections = Array.prototype.slice.call(document.querySelectorAll('.main-banner .hero-block'));
     if(!track || sections.length === 0) return;
-    var isSmall = window.matchMedia && window.matchMedia('(max-width: 576px)').matches;
     function scrollToIndex(idx){
       var target = sections[idx];
       if(!target) return;
@@ -51,10 +50,20 @@
       if(next){
         next.addEventListener('click', function(){ scrollToIndex(Math.min(sections.length-1, i+1)); });
       }
-      // On larger screens, visually disable at edges; on phones keep tappable for consistency
-      if(!isSmall){
-        if(prev && i === 0){ prev.classList.add('disabled'); prev.setAttribute('disabled','disabled'); }
-        if(next && i === sections.length-1){ next.classList.add('disabled'); next.setAttribute('disabled','disabled'); }
+      // Always hide arrows that would lead to nowhere: prev on first, next on last
+      if(prev && i === 0){
+        prev.classList.add('disabled');
+        prev.setAttribute('aria-disabled','true');
+        prev.setAttribute('aria-hidden','true');
+        prev.setAttribute('tabindex','-1');
+        prev.style.display = 'none';
+      }
+      if(next && i === sections.length-1){
+        next.classList.add('disabled');
+        next.setAttribute('aria-disabled','true');
+        next.setAttribute('aria-hidden','true');
+        next.setAttribute('tabindex','-1');
+        next.style.display = 'none';
       }
     });
   }
@@ -124,4 +133,38 @@
     }
   }
   window.addEventListener('load', initReveals);
+
+  // Contact form: set _next to return to site and show success message
+  document.addEventListener('DOMContentLoaded', function(){
+    try {
+      var nextField = document.getElementById('contact-next');
+      if(nextField){
+        var url = new URL(window.location.href);
+        url.hash = 'message-sent';
+        nextField.value = url.toString();
+      }
+      if(window.location.hash === '#message-sent'){
+        var alertBox = document.getElementById('contact-success');
+        if(alertBox){ alertBox.classList.remove('d-none'); }
+      }
+      var copyBtn = document.getElementById('copy-email');
+      if(copyBtn){
+        copyBtn.addEventListener('click', function(){
+          var email = copyBtn.getAttribute('data-email') || 'genaiera1@gmail.com';
+          if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(email).then(function(){
+              copyBtn.textContent = 'copied!';
+              setTimeout(function(){ copyBtn.textContent = 'copy email'; }, 1500);
+            }).catch(function(){
+              window.prompt('Copy email address:', email);
+            });
+          } else {
+            window.prompt('Copy email address:', email);
+          }
+        });
+      }
+    } catch(e) {
+      // no-op
+    }
+  });
 })();
