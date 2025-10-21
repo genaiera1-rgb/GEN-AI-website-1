@@ -41,6 +41,14 @@
       .milestone-content p { color:#4b5563; margin:0; }
 
       footer { position: relative; z-index: 10; }
+
+      /* News page navbar adjustments (desktop only): smaller, no-wrap, right-aligned */
+      @media (min-width: 992px) {
+        /* Right-align the collapse content and keep items on a single line */
+        #navbarMain { justify-content: flex-end; }
+        .navbar .navbar-nav { flex-wrap: nowrap; white-space: nowrap; font-size: 0.85rem; }
+        .navbar .navbar-nav .nav-link { padding-left: .5rem; padding-right: .5rem; }
+      }
     </style>
   </head>
   <body>
