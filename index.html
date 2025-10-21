@@ -55,8 +55,11 @@
     .navbar .container { padding-left: 8px; padding-right: 8px; }
     .navbar-brand { gap: 8px; margin-right: 8px; }
     .navbar-brand .brand-text { font-size: 1.05rem; }
+    /* Right-align and prevent wrapping */
+    .navbar .navbar-collapse .navbar-nav { margin-left: auto !important; justify-content: flex-end; }
     .navbar-dark .navbar-nav { flex-wrap: nowrap; gap: 2px; }
-    .navbar-dark .navbar-nav .nav-link { font-size: 0.95rem; padding: 0.4rem 0.55rem; white-space: nowrap; }
+    /* Reduce font size by ~18% and tighten padding */
+    .navbar-dark .navbar-nav .nav-link { font-size: 0.85rem; padding: 0.35rem 0.50rem; white-space: nowrap; }
   }
 
       /* Main Banner */
@@ -267,10 +270,10 @@
   .js-preloader.loaded { opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility 0s linear .3s; }
 
   /* Reveal-on-scroll animations (faster) */
-  .reveal-up, .reveal-left, .reveal-right { opacity: 0; will-change: transform, opacity; transition: opacity var(--reveal-speed, .25s) cubic-bezier(.2,.8,.2,1), transform var(--reveal-speed, .25s) cubic-bezier(.2,.8,.2,1); transition-delay: var(--reveal-delay, 0s); }
-      .reveal-up { transform: translateY(24px); }
-      .reveal-left { transform: translateX(-28px); }
-      .reveal-right { transform: translateX(28px); }
+  .reveal-up, .reveal-left, .reveal-right { opacity: 0; will-change: transform, opacity; transition: opacity var(--reveal-speed, .18s) cubic-bezier(.2,.8,.2,1), transform var(--reveal-speed, .18s) cubic-bezier(.2,.8,.2,1); transition-delay: var(--reveal-delay, 0s); }
+    .reveal-up { transform: translateY(16px); }
+    .reveal-left { transform: translateX(-20px); }
+    .reveal-right { transform: translateX(20px); }
       .in-view { opacity: 1 !important; transform: none !important; }
 
       /* Respect reduced motion */
@@ -325,7 +328,7 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item"><a class="nav-link active" href="#top">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="#vision-block">Vision</a></li>
-              <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+              <li class="nav-item"><a class="nav-link" href="#events">Upcoming Events</a></li>
               <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
               <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
               <li class="nav-item"><a class="nav-link" href="news.html">News &amp; Blog</a></li>
@@ -414,19 +417,19 @@
           </div>
         </div>
         <div class="programs-section">
-          <div class="program-card reveal-up" style="--reveal-delay:.0s; --reveal-speed:.18s">
+          <div class="program-card reveal-up" style="--reveal-delay:.0s; --reveal-speed:.16s">
             <div class="icon"><img src="assets/images/service-01.png" alt="GenAI Literacy" /></div>
             <h4>GenAI Literacy Programs</h4>
             <p>Comprehensive training programs designed to build AI literacy among educators, covering fundamentals, classroom applications, and ethics in education.</p>
             <a class="btn btn-warning discover-btn" href="#" role="button" data-bs-toggle="modal" data-bs-target="#modal-literacy" aria-controls="modal-literacy">Discover More</a>
           </div>
-          <div class="program-card reveal-up" style="--reveal-delay:.04s; --reveal-speed:.18s">
+          <div class="program-card reveal-up" style="--reveal-delay:.02s; --reveal-speed:.16s">
             <div class="icon"><img src="assets/images/service-02.png" alt="Digital Pedagogy Tools" /></div>
             <h4>Digital Pedagogy Tools</h4>
             <p>Access AI tools for lesson planning, content creation, assessment design, and personalized learning to enhance delivery and engagement.</p>
             <a class="btn btn-warning discover-btn" href="#" role="button" data-bs-toggle="modal" data-bs-target="#modal-pedagogy" aria-controls="modal-pedagogy">Discover More</a>
           </div>
-          <div class="program-card reveal-up" style="--reveal-delay:.08s; --reveal-speed:.18s">
+          <div class="program-card reveal-up" style="--reveal-delay:.04s; --reveal-speed:.16s">
             <div class="icon"><img src="assets/images/service-03.png" alt="Research Collaboration" /></div>
             <h4>Research Collaboration</h4>
             <p>Facilitating international partnerships, peer‑reviewed publications, and projects that advance AI in education across African contexts.</p>
@@ -515,7 +518,7 @@
     <!-- ***** Events Section Start ***** -->
     <div class="section events" id="events">
       <div class="container">
-        <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>Schedule</h6><h2> GenAI‑ERA Events</h2></div></div></div>
+        <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>Upcoming Events</h6><h2> GenAI‑ERA Events</h2></div></div></div>
         <div class="row">
           <!-- Most recent first: 19 Sept 2025 -->
           <div class="col-lg-4 col-md-6">
@@ -523,24 +526,22 @@
           </div>
           <!-- 29 Aug 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-up h-100" style="--reveal-delay:.08s"><img src="assets/images/event-04.jpg" alt="GenAI Club Launch &amp; Networking" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>GenAI Club Launch &amp; Networking</h4><p class="mb-2"><strong>Date:</strong> 29 Aug 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for GenAI Club Launch &amp; Networking"></a></div></div>
+            <div class="event-card reveal-up h-100" style="--reveal-delay:.04s"><img src="assets/images/event-04.jpg" alt="GenAI Club Launch &amp; Networking" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>Webinar on Prompt Engineering</h4><p class="text-muted">Practical AI Prompt Strategies for Designing Authentic Curriculum in Underserved Contexts.</p><p class="mb-2"><strong>Date:</strong> 29 Aug 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 1 Hour &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for GenAI Club Launch &amp; Networking"></a></div></div>
           </div>
           <!-- 27 Apr 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-right h-100" style="--reveal-delay:.16s"><img src="assets/images/event-01.jpg" alt="A Call For Forum Discussion: GenAI in African Classrooms" /><div class="event-content"><span class="event-category">Community Meetup</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="text-muted">Effective Use of Artificial Intelligence in Education</p><p class="mb-2"><strong>Date:</strong> 27 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
+            <div class="event-card reveal-right h-100" style="--reveal-delay:.08s"><img src="assets/images/event-01.jpg" alt="A Call For Forum Discussion: GenAI in African Classrooms" /><div class="event-content"><span class="event-category">Community Meetup</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="text-muted">Effective Use of Artificial Intelligence in Education</p><p class="mb-2"><strong>Date:</strong> 27 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
           </div>
           <!-- 12 Apr 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-left h-100" style="--reveal-delay:.24s"><img src="assets/images/event-03.jpg" alt="AI in Educational Research" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
+            <div class="event-card reveal-left h-100" style="--reveal-delay:.12s"><img src="assets/images/event-03.jpg" alt="AI in Educational Research" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
           </div>
           <!-- 08 Mar 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-up h-100" style="--reveal-delay:.32s"><img src="assets/images/event-02.jpg" alt="Effective Use of Artificial Intelligence in Education" /><div class="event-content"><span class="event-category">Digital Pedagogy Seminar</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for Effective Use of AI in Education (Prompt Engineering)"></a></div></div>
+            <div class="event-card reveal-up h-100" style="--reveal-delay:.16s"><img src="assets/images/event-02.jpg" alt="Effective Use of Artificial Intelligence in Education" /><div class="event-content"><span class="event-category">GenAI Club Launch &amp; Networking</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for Effective Use of AI in Education (Prompt Engineering)"></a></div></div>
           </div>
           <!-- TBA: place last -->
-          <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-right h-100" style="--reveal-delay:.40s"><img src="assets/images/event-05.jpg" alt="GenAI Educator Roundtable" /><div class="event-content"><span class="event-category">Upcoming Event</span><h4>GenAI Educator Roundtable</h4><p class="text-muted">Panel conversation and Q&amp;A focused on best practices, challenges, and opportunities with GenAI in classrooms.</p><p class="mb-2"><strong>Date:</strong> TBA &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -593,11 +594,11 @@
         </ul>
         <div class="row event_box">
           <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer literacy"><div class="events_item reveal-up" style="--reveal-delay: .0s"><div class="thumb"><a href="#"><img src="assets/images/course-01.jpg" alt="AI and STEM Education in Underserved Communities" /></a><span class="category">GenAI Literacy</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Matthew Nyaaba</span><small class="text-muted d-block">Invited podcast with EduVision Ghana</small><h4>AI and STEM Education in Underserved Communities</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item reveal-up" style="--reveal-delay: .08s"><div class="thumb"><a href="#"><img src="assets/images/course-02.jpg" alt="Empowering Teaching Strategies with AI Tools" /></a><span class="category">Digital Pedagogy</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Macharious Nabang</span><h4>Empowering Teaching Strategies with AI Tools</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer literacy research"><div class="events_item reveal-up" style="--reveal-delay: .16s"><div class="thumb"><a href="#"><img src="assets/images/course-03.jpg" alt="Environmentally Friendly AI: Bridging AI and Learning" /></a><span class="category">Global Collaboration</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Zack Kinzler</span><h4>Environmentally Friendly AI: Bridging AI and Learning</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item reveal-up" style="--reveal-delay: .24s"><div class="thumb"><a href="#"><img src="assets/images/course-04.jpg" alt="AI‑Driven Educational Research Methodologies" /></a><span class="category">Educational Research</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Dr. Patrick Kyeremeh</span><h4>AI‑Driven Educational Research Methodologies</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item reveal-up" style="--reveal-delay: .32s"><div class="thumb"><a href="#"><img src="assets/images/course-05.jpg" alt="Innovative Assessment Strategies with AI" /></a><span class="category">Future Insights</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Matthew Nyaaba</span><h4>Innovative Assessment Strategies with AI</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item reveal-up" style="--reveal-delay: .40s"><div class="thumb"><a href="#"><img src="assets/images/course-06.jpg" alt="Empowering Pre‑Service Teachers through AI" /></a><span class="category">Teacher Empowerment</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Bismark Nyaaba Akanzire</span><h4>Empowering Pre‑Service Teachers through AI</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item reveal-up" style="--reveal-delay: .04s"><div class="thumb"><a href="#"><img src="assets/images/course-02.jpg" alt="Empowering Teaching Strategies with AI Tools" /></a><span class="category">Digital Pedagogy</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Macharious Nabang</span><h4>Empowering Teaching Strategies with AI Tools</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer literacy research"><div class="events_item reveal-up" style="--reveal-delay: .08s"><div class="thumb"><a href="#"><img src="assets/images/course-03.jpg" alt="Environmentally Friendly AI: Bridging AI and Learning" /></a><span class="category">Global Collaboration</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Zack Kinzler</span><h4>Environmentally Friendly AI: Bridging AI and Learning</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item reveal-up" style="--reveal-delay: .12s"><div class="thumb"><a href="#"><img src="assets/images/course-04.jpg" alt="AI‑Driven Educational Research Methodologies" /></a><span class="category">Educational Research</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Dr. Patrick Kyeremeh</span><h4>AI‑Driven Educational Research Methodologies</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item reveal-up" style="--reveal-delay: .16s"><div class="thumb"><a href="#"><img src="assets/images/course-05.jpg" alt="Innovative Assessment Strategies with AI" /></a><span class="category">Future Insights</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Matthew Nyaaba</span><h4>Innovative Assessment Strategies with AI</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item reveal-up" style="--reveal-delay: .20s"><div class="thumb"><a href="#"><img src="assets/images/course-06.jpg" alt="Empowering Pre‑Service Teachers through AI" /></a><span class="category">Teacher Empowerment</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Bismark Nyaaba Akanzire</span><h4>Empowering Pre‑Service Teachers through AI</h4></div></div></div>
         </div>
       </div>
     </section>
@@ -714,9 +715,9 @@
         <div class="row">
           <!-- Former Board of Directors (first) -->
           <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-01.jpg" alt="Matthew Nyaaba" /><h4>Matthew Nyaaba</h4><div class="position">Project Director &amp; Founder</div><div class="location">AI4STEM Education Center, University of Georgia, USA</div><div class="description">Leading GenAI‑ERA's strategic vision, international partnerships, and innovation in AI education across African educational systems.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/matthew-nyaaba-161280126?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Matthew Nyaaba on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-02.jpg" alt="Macharious Nabang" /><h4>Macharious Nabang</h4><div class="position">Digital &amp; Communications Director</div><div class="location">Bagabaga College of Education, Ghana</div><div class="description">Overseeing digital infrastructure, communications strategy, and technology integration across GenAI‑ERA platforms and initiatives.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/macharious-nabang-789aa4116?utm_source=share&utm_campaign=share_via&u" target="_blank" rel="noopener" aria-label="Macharious Nabang on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-03.jpg" alt="Bismark Nyaaba Akanzire" /><h4>Bismark Nyaaba Akanzire</h4><div class="position">Pedagogy Director</div><div class="location">Gambaga College of Education, Ghana</div><div class="description">Developing pedagogical frameworks, teacher training programs, and ensuring quality standards in AI integration methodologies.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/bismark-akanzire-840864129?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Bismark Nyaaba Akanzire on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-04.jpg" alt="Dr. Patrick Kyeremeh" /><h4>Dr. Patrick Kyeremeh</h4><div class="position">Research Director</div><div class="location">St. Joseph's College of Education, Ghana</div><div class="description">Leading research initiatives, scholarly publications, and coordinating collaborative projects in AI‑enhanced education.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/patrick-kyeremeh-phd-b0a291159?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Patrick Kyeremeh on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-02.jpg" alt="Macharious Nabang" /><h4>Macharious Nabang</h4><div class="position">Co‑Founder ; Digital &amp; Communications Director</div><div class="location">Bagabaga College of Education, Ghana</div><div class="description">Overseeing digital infrastructure, communications strategy, and technology integration across GenAI‑ERA platforms and initiatives.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/macharious-nabang-789aa4116?utm_source=share&utm_campaign=share_via&u" target="_blank" rel="noopener" aria-label="Macharious Nabang on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-03.jpg" alt="Bismark Nyaaba Akanzire" /><h4>Bismark Nyaaba Akanzire</h4><div class="position">Co‑Founder &amp; Pedagogy Director</div><div class="location">Gambaga College of Education, Ghana</div><div class="description">Developing pedagogical frameworks, teacher training programs, and ensuring quality standards in AI integration methodologies.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/bismark-akanzire-840864129?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Bismark Nyaaba Akanzire on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-04.jpg" alt="Dr. Patrick Kyeremeh" /><h4>Dr. Patrick Kyeremeh</h4><div class="position">Co‑Founder &amp; Research Director</div><div class="location">St. Joseph's College of Education, Ghana</div><div class="description">Leading research initiatives, scholarly publications, and coordinating collaborative projects in AI‑enhanced education.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/patrick-kyeremeh-phd-b0a291159?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Patrick Kyeremeh on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
 
           <!-- Remaining Executive Members -->
           <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dr-quarshie-ghana.jpg" alt="Dr. Quarshie" /><h4>Dr. Benjamin Quarshie</h4><div class="position">Research &amp; Grants Director</div><div class="location">Mampong technical college of Education, Ghana</div><div class="description">Securing funding, managing research portfolios, and developing sustainable grant strategies for AI education initiatives.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/benjamin-quarshie-376b6380?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Benjamin Quarshie on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
@@ -802,6 +803,7 @@
             <p class="meta">Bismark Nyaaba Akanzire; Matthew Nyaaba; Macharious Nabang</p>
             <a class="stretched-link" href="https://doi.org/10.30935/jdet/15887" target="_blank" rel="noopener" aria-label="Read JDET article"></a>
           </div>
+          
         </div>
       </div>
     </section>
@@ -829,6 +831,14 @@
             <h5>Spencer Research‑Practice Partnerships (RPP) Program</h5>
             <p>Supports long‑term research partnerships that improve education practice and equity. Awards up to $400,000 for up to 3 years; pre‑proposal required.</p>
             <a class="stretched-link" href="https://www.spencer.org/grant_types/research-practice-partnerships" target="_blank" rel="noopener" aria-label="View Spencer Research‑Practice Partnerships grant"></a>
+          </div>
+          <div class="resource-card reveal-up" style="--reveal-delay:.16s" role="link" tabindex="0" onclick="this.querySelector('a.stretched-link').click();" onkeydown="if(event.key==='Enter' || event.key===' '){ event.preventDefault(); this.querySelector('a.stretched-link').click(); }">
+            <img src="assets/images/event-05.jpg" alt="GenAI‑ERA Fellowship" style="width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:12px;" />
+            <span class="badge">Fellowship</span>
+            <h5>GenAI‑ERA Fellowship: Authentic Curriculum &amp; Community Impact</h5>
+            <p>Fellowship for educators and researchers designing authentic, community‑responsive AI‑integrated curricula in underserved contexts. Fellows receive mentorship, collaborative research support, and visibility across the GenAI‑ERA network.</p>
+            <p class="meta">Focus: Equity, inclusion, and real‑world classroom impact.</p>
+            <a class="stretched-link" href="#contact" aria-label="Express interest in GenAI‑ERA Fellowship"></a>
           </div>
         </div>
       </div>
