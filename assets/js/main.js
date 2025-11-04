@@ -147,6 +147,56 @@
     }
   }
   window.addEventListener('load', initReveals);
+  // Also initialize reveals as soon as DOM is ready so animations don't wait for slow resources
+  document.addEventListener('DOMContentLoaded', initReveals);
+
+  // Prevent page jump for featured program buttons (href="#") while allowing Bootstrap modals to open
+  document.addEventListener('click', function(e){
+    var anchor = e.target && e.target.closest('.programs-section a[href="#"]');
+    if(anchor){
+      e.preventDefault();
+    }
+  });
+  // Also prevent default on keyboard activation for the same buttons
+  document.addEventListener('keydown', function(e){
+    if((e.key === 'Enter' || e.key === ' ') && e.target && e.target.closest('.programs-section a[href="#"]')){
+      e.preventDefault();
+    }
+  });
+
+  // Make entire Featured Programs cards behave like buttons opening their modal, without page scroll
+  document.addEventListener('DOMContentLoaded', function(){
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.programs-section .program-card'));
+    if(cards.length === 0) return;
+    cards.forEach(function(card){
+      // Improve accessibility: make card focusable and button-like
+      if(!card.hasAttribute('tabindex')){ card.setAttribute('tabindex', '0'); }
+      if(!card.hasAttribute('role')){ card.setAttribute('role', 'button'); }
+
+      // Click anywhere on card triggers inner modal button
+      card.addEventListener('click', function(ev){
+        // If the direct click target is already an actionable element, let it handle
+        if(ev.target.closest('a, button')){ return; }
+        var btn = card.querySelector('a.discover-btn[data-bs-toggle="modal"]');
+        if(btn){
+          ev.preventDefault();
+          // Trigger the anchor click so Bootstrap opens the modal; our global handler prevents page-jump
+          btn.click();
+        }
+      });
+
+      // Keyboard support: Enter/Space should open the modal
+      card.addEventListener('keydown', function(ev){
+        if(ev.key === 'Enter' || ev.key === ' '){
+          var btn = card.querySelector('a.discover-btn[data-bs-toggle="modal"]');
+          if(btn){
+            ev.preventDefault();
+            btn.click();
+          }
+        }
+      });
+    });
+  });
 
   // Contact form: set _next to return to site and show success message
   document.addEventListener('DOMContentLoaded', function(){
@@ -180,5 +230,29 @@
     } catch(e) {
       // no-op
     }
+  });
+
+  // Close mobile navbar when clicking outside of it
+  document.addEventListener('click', function(e){
+    try {
+      var collapse = document.querySelector('.navbar-collapse');
+      if(!collapse) return;
+      // Only proceed if collapse is currently shown (mobile open)
+      if(!collapse.classList.contains('show')) return;
+      // If click happened inside the navbar, do nothing
+      if(e.target && e.target.closest && e.target.closest('.navbar')) return;
+
+      // Try to use Bootstrap Collapse API if available
+      if(window.bootstrap && bootstrap.Collapse){
+        var bsCollapse = bootstrap.Collapse.getInstance(collapse) || new bootstrap.Collapse(collapse, { toggle: false });
+        bsCollapse.hide();
+      } else {
+        // Fallback: remove classes/attributes
+        collapse.classList.remove('show');
+        collapse.setAttribute('aria-expanded', 'false');
+        var toggler = document.querySelector('.navbar-toggler');
+        if(toggler){ toggler.classList.remove('collapsed'); toggler.setAttribute('aria-expanded','false'); }
+      }
+    } catch(err){ /* ignore errors */ }
   });
 })();

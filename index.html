@@ -41,6 +41,9 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Poppins', sans-serif; line-height: 1.6; padding-top: 72px; }
 
+      /* Scroll margin to prevent fixed navbar from covering section headers */
+      #vision-block { scroll-margin-top: 80px; }
+
       /* Header & Navigation */
   .navbar-brand { font-weight: 800; letter-spacing: 0.5px; }
   .navbar-dark.bg-dark { background-color: var(--brand-navy) !important; }
@@ -68,6 +71,8 @@
   .main-banner .hero-block { flex: 0 0 100vw; min-height: 60vh; display: flex; align-items: center; padding: 64px 0; scroll-snap-align: start; }
   .main-banner .header-text h2 { font-weight: 800; }
   .main-banner .hero-block { position: relative; }
+  /* Move ALL hero blocks down */
+  .main-banner .hero-block { margin-top: 100px; }
   /* Readability overlays (lightened) */
   .main-banner .hero-block::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(13,59,102,0.35) 0%, rgba(247,147,30,0.20) 100%); }
   /* Removed heavy scrim; rely on subtle gradient + text styling */
@@ -128,6 +133,13 @@
     .resource-card .badge { display: inline-block; background: var(--brand-orange); color: #fff; font-weight: 700; padding: 6px 10px; border-radius: 10px; font-size: 12px; letter-spacing: .3px; margin-bottom: 10px; }
     .resource-card h5 { color: var(--brand-navy); font-weight: 700; line-height: 1.3; margin: 6px 0 10px; }
     .resource-card p { color: #4b5563; margin-bottom: 10px; }
+    /* Unbold text inside News (milestones) section while keeping semantic <strong> markup */
+    .section.milestones .milestone-content,
+    .section.milestones .milestone-content h4,
+    .section.milestones .milestone-content p,
+    .section.milestones .milestone-content strong {
+      font-weight: 400 !important;
+    }
     .resource-card .meta { color: #6b7280; font-size: 13px; }
   .resource-card a.stretched-link { position: absolute; inset: 0; z-index: 1; color: inherit; }
   /* Visible affordances: focus outline and hover hint */
@@ -327,7 +339,7 @@
           <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item"><a class="nav-link active" href="#top">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#vision-block">Vision</a></li>
+              <li class="nav-item"><a class="nav-link" href="#vision-block">Services</a></li>
               <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
               <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
               <li class="nav-item"><a class="nav-link" href="news.html">News &amp; Blog</a></li>
@@ -345,7 +357,7 @@
     <!-- ***** Main Banner (Stacked sections, no carousel) ***** -->
     <div class="main-banner" id="top">
       <div class="hero-track">
-        <section class="hero-block item-1">
+  <section class="hero-block item-1" id="vision-hero">
           <div class="container">
             <div class="row">
               <div class="col-lg-10 col-xl-8">
@@ -355,7 +367,7 @@
                   <p>At GenAI‑ERA Hub, we aim to extend Generative AI literacy and resources to educators at all levels—teacher educators, in‑service teachers, and pre‑service teachers. By incorporating global benchmarks such as the UNESCO AI Literacy Framework, OECD AI Principles, and local education standards, our vision is to promote the responsible use of AI in classrooms and empower academic communities throughout Africa.</p>
                   <div class="buttons d-flex gap-2 flex-wrap">
                     <a class="btn btn-warning" href="#programs">Explore Programs</a>
-                    <a class="btn btn-outline-light" href="#vision-block"><i class="fa fa-play"></i> Discover Our Vision</a>
+                    <a class="btn btn-outline-light" href="#vision-block"><i class="fa fa-play"></i> Discover Our Core Services</a>
                   </div>
                 </div>
               </div>
@@ -469,6 +481,43 @@
       </div>
     </div>
 
+  <!-- ***** Meet The Founder Modal ***** -->
+  <div class="modal fade" id="modal-founders-motivation" tabindex="-1" aria-labelledby="modal-founders-motivation-label" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="d-flex align-items-center gap-2">
+              <img src="assets/images/logo.png" alt="GenAI‑ERA logo" style="height:28px;width:auto;border-radius:6px;object-fit:contain" />
+              <h5 class="modal-title" id="modal-founders-motivation-label">Meet The Founder</h5>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="p-4 p-md-5">
+              <div class="container-fluid">
+                <div class="row g-4 align-items-start">
+                  <div class="col-12 col-lg-10">
+                    <h2 class="display-6" style="font-weight:800;color:var(--brand-navy);letter-spacing:.2px">Matthew Nyaaba</h2>
+                    <p class="lead mb-3" style="color:#374151">Leads the strategic vision, international partnerships, and innovation efforts of GenAI‑ERA, advancing AI integration across African educational systems.</p>
+                    <div class="content" style="font-size:1.025rem;line-height:1.85;color:#374151">
+                      <p>He is a teacher educator whose career has been shaped by a commitment to equitable, inclusive education and the thoughtful application of emerging technologies in teaching and learning. Matthew’s early research focused on the full implementation and evaluation of Teacher Education in Sub‑Saharan Africa (TESSA) Open Educational Resources (OER), a foundation that inspired his ongoing advocacy for open, contextually relevant, and teacher‑centered innovations throughout the Global South. As a PhD candidate at the University of Georgia, USA (UGA) and a graduate researcher with the AI4STEM Education Center, UGA, Matthew was influenced by the Center’s pioneering work on AI in STEM education. He helped lead early nationwide webinars and cross‑cultural research collaborations between AI4STEM and universities in Ghana. Through these experiences, he recognized the growing fear of a widening digital divide and the critical absence of Africa-centered AI tools and frameworks. This reinforced his belief that AI integration in education must be guided by cultural relevance, equity, and local ownership to avoid reinforcing global inequalities. This vision gave rise to GenAI‑ERA, Generative AI for Education and Research in Africa, a nonprofit initiative dedicated to democratizing AI literacy, co‑creating culturally responsive AI tools, and building capacity among African educators to shape AI’s future in education. GenAI‑ERA has grown into a vibrant network, sometimes drawing over 500 educators, researchers, and students per session, with active engagement across Africa and beyond. This dream became a reality through the enthusiastic commitment of co‑founders and executive members who share a unified mission: to create inclusive, ethical, and transformative AI solutions for African education systems.</p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-2 d-flex flex-column align-items-lg-end">
+                    <a class="btn btn-warning mb-2" href="#contact">Partner with Us</a>
+                    <a class="btn btn-outline-secondary" href="#research">Publications</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="modal-pedagogy" tabindex="-1" aria-labelledby="modal-pedagogy-label" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -522,7 +571,7 @@
         <div class="row">
           <!-- Most recent first: 19 Sept 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><img src="assets/images/event-06.jpg" alt="AI Policy &amp; Ethics Forum" /><div class="event-content"><span class="event-category">UNESCO Webinar</span><h4>AI Policy &amp; Ethics Forum</h4><p class="text-muted">Community discussion on responsible use, policy guidelines, and safeguarding in AI-enabled learning.</p><p class="mb-2"><strong>Date:</strong> 19 Sept 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/WroZKhn2sNyT5UXY8" target="_blank" rel="noopener" aria-label="Register for AI Policy &amp; Ethics Forum (UNESCO)"></a></div></div>
+            <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><img src="assets/images/event-06.jpg" alt="AI Policy &amp; Ethics Forum" /><div class="event-content"><span class="event-category">UNESCO Webinar</span><h4>AI Policy &amp; Ethics Forum</h4><p class="text-muted">GenAI‑ERA is pleased to invite you to a special webinar on the UNESCO Artificial Intelligence Framework for Students, an important guide designed to enhance students’ understanding and responsible engagement with AI.</p><p class="mb-2"><strong>Date:</strong> 19 Sept 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/WroZKhn2sNyT5UXY8" target="_blank" rel="noopener" aria-label="Register for AI Policy &amp; Ethics Forum (UNESCO)"></a></div></div>
           </div>
           <!-- 29 Aug 2025 -->
           <div class="col-lg-4 col-md-6">
@@ -560,6 +609,10 @@
           </div>
         </div>
         <div class="row g-4">
+          <!-- Early video (YouTube Shorts) -->
+          <div class="col-lg-6 col-md-12">
+            <div class="ratio ratio-16x9 video-card"><iframe src="https://www.youtube.com/embed/nB-28RX9Avg" title="YouTube Shorts: Featured" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+          </div>
           <div class="col-lg-6 col-md-12">
             <div class="ratio ratio-16x9 video-card"><iframe src="https://www.youtube.com/embed/lxJAzdUwqmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
           </div>
@@ -668,7 +721,7 @@
                 <img src="assets/images/celebrate-01.jpg" alt="Celebrating Excellence: Dr. Benjamin Quarshie recognized in Ghana Teacher Prize 2025" />
               </div>
               <div class="milestone-content">
-                <h4>🎉 Celebrating Excellence! 🎉</h4>
+                <h4>Celebrating Excellence!</h4>
                 <p>We are proud to celebrate <strong>Dr. Benjamin Quarshie</strong>, the Assistant Research &amp; Grants Director of GenAI‑ERA, for emerging as the <strong>2nd Runner‑Up for College Lecturer</strong> in the <strong>Ghana Teacher Prize 2025</strong>!</p>
                 <p>Your dedication to teaching, research, and service continues to inspire our community and advance the mission of GenAI‑ERA. We are truly proud of you, <strong>Dr. Benjamin Quarshie</strong>.</p>
               </div>
@@ -714,7 +767,7 @@
         <!-- Combined List: Board first, then other executives -->
         <div class="row">
           <!-- Former Board of Directors (first) -->
-          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-01.jpg" alt="Matthew Nyaaba" /><h4>Matthew Nyaaba</h4><div class="position">Founder</div><div class="location">AI4STEM Education Center, University of Georgia, USA</div><div class="description">Leading GenAI‑ERA's strategic vision, international partnerships, and innovation in AI education across African educational systems.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/matthew-nyaaba-161280126?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Matthew Nyaaba on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-01.jpg" alt="Matthew Nyaaba" /><h4>Matthew Nyaaba</h4><div class="position">Founder</div><div class="location">AI4STEM Education Center, University of Georgia, USA</div><div class="description mt-2">Leading GenAI‑ERA's strategic vision, international partnerships, and innovation in AI education across African educational systems.</div><div class="d-grid gap-2 mb-2"><a class="btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#modal-founders-motivation">Meet The Founder</a></div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/matthew-nyaaba-161280126?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Matthew Nyaaba on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-02.jpg" alt="Macharious Nabang" /><h4>Macharious Nabang</h4><div class="position">Co‑Founder ; Digital &amp; Communications Director</div><div class="location">Bagabaga College of Education, Ghana</div><div class="description">Overseeing digital infrastructure, communications strategy, and technology integration across GenAI‑ERA platforms and initiatives.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/macharious-nabang-789aa4116?utm_source=share&utm_campaign=share_via&u" target="_blank" rel="noopener" aria-label="Macharious Nabang on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-03.jpg" alt="Bismark Nyaaba Akanzire" /><h4>Bismark Nyaaba Akanzire</h4><div class="position">Co‑Founder &amp; Pedagogy Director</div><div class="location">Gambaga College of Education, Ghana</div><div class="description">Developing pedagogical frameworks, teacher training programs, and ensuring quality standards in AI integration methodologies.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/bismark-akanzire-840864129?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Bismark Nyaaba Akanzire on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <div class="col-lg-3 col-md-6 mb-4 board-member"><div class="team-member-card"><img src="assets/images/member-04.jpg" alt="Dr. Patrick Kyeremeh" /><h4>Dr. Patrick Kyeremeh</h4><div class="position">Co‑Founder &amp; Research Director</div><div class="location">St. Joseph's College of Education, Ghana</div><div class="description">Leading research initiatives, scholarly publications, and coordinating collaborative projects in AI‑enhanced education.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/patrick-kyeremeh-phd-b0a291159?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Patrick Kyeremeh on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
@@ -723,10 +776,10 @@
           <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dr-quarshie-ghana.jpg" alt="Dr. Quarshie" /><h4>Dr. Benjamin Quarshie</h4><div class="position">Research &amp; Grants Director</div><div class="location">Mampong technical college of Education, Ghana</div><div class="description">Securing funding, managing research portfolios, and developing sustainable grant strategies for AI education initiatives.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/benjamin-quarshie-376b6380?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Benjamin Quarshie on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/craig-gibbs-south-africa.jpg" alt="Craig Gibbs" /><h4>Craig Gibbs</h4><div class="position">Deputy Research and Grant</div><div class="location">JET Education Services, South Africa</div><div class="description">Coordinating research activities, documentation, and stakeholder communications; supporting grant pipelines and reporting.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/craig-gibbs-8b4b5b116?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Craig Gibbs on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/vanessa-willemse-south-africa.jpg" alt="Vanessa Willemse" /><h4>Vanessa Willemse</h4><div class="position">Director, International Relations</div><div class="location">Northern Cape Provincial Teacher Development Institute, South Africa</div><div class="description">Building international partnerships and coordinating cross‑border programs that expand GenAI‑ERA's global footprint.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/vanessa-willemse-64b02aa2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Vanessa Willemse on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/saeed-maigari-nigeria.jpg" alt="Dr. Saeed Maigari" /><h4>Engr. Dr. Saeed Maigari</h4><div class="position">Assistant Director, International Relations</div><div class="location">Federal University of Transportation, Nigeria</div><div class="description">Supporting international collaborations, MOUs, and exchange activities with universities and NGOs.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/engr-dr-saeed-maigari-8276963a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_apptm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Saeed Maigari on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/saeed-maigari-nigeria.jpg" alt="Dr. Saeed Maigari" /><h4>Engr. Dr. Saeed Maigari</h4><div class="position">Deputy Director, International Relations</div><div class="location">Federal University of Transportation, Daura, Nigeria</div><div class="description">Supporting international collaborations, MOUs, and exchange activities with universities and NGOs.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/engr-dr-saeed-maigari-8276963a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_apptm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dr. Saeed Maigari on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
 
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dorcas-adomina-ghana.jpg" alt="Dorcas Adomina" /><h4>Dorcas Adomina</h4><div class="position">Director, Equity &amp; Inclusion</div><div class="location">Ghana</div><div class="description">Embedding equity, accessibility, and inclusion across programs; leading DEI audits and guidelines.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/adomina-dorcas-687698259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dorcas Adomina on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/ellen-kwarteng-ghana.jpg" alt="Ellen Kwarteng" /><h4>Ellen Kwarteng</h4><div class="position">Program Manager</div><div class="location">St Joseph's College of Education, Ghana</div><div class="description">Operational oversight of events, webinars, and PD cohorts; monitoring KPIs and reporting.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/ellen-kwarteng-b34551ek4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Ellen Kwarteng on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/dorcas-adomina-ghana.jpg" alt="Dorcas Adomina" /><h4>Dorcas Adomina</h4><div class="position">Director, Equity &amp; Inclusion</div><div class="location">University of Education, Winneba, Ghana</div><div class="description">Embedding equity, accessibility, and inclusion across programs; leading DEI audits and guidelines.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/dorcas-eyram-96657722a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="Dorcas Adomina on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+          <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/ellen-kwarteng-ghana.jpg" alt="Ellen Kwarteng" /><h4>Ellen Kwarteng</h4><div class="position">Program Manager</div><div class="location">St Joseph's College of Education, Ghana</div><div class="description">Operational oversight of events, webinars, and PD cohorts; monitoring KPIs and reporting.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/ellen-kwarteng-524128272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Ellen Kwarteng on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <!-- Finance & Operations Lead card removed per request -->
           <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executives/sechema-koma-lesotho.jpg" alt="Sechaba Nephtally Koma" /><h4>Sechaba Nephtally Koma</h4><div class="position">Teaching,Learning &amp; Innovation Lead</div><div class="location">The National University of Lesotho, Lesotho</div><div class="description">Media relations, stakeholder engagement, and partnership pipelines across regions.</div><ul class="social-icons"><li><a href="https://www.linkedin.com/in/sechaba-nephtally-koma-466a1014b/?originalSubdomain=ls" target="_blank" rel="noopener" aria-label="Sechaba Nephtally Koma on LinkedIn"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
           <!-- New Executive Member: Technical Lead -->
