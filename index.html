@@ -29,293 +29,125 @@
     <link rel="stylesheet" href="assets/css/animate.css" />
   <!-- Removed unused Swiper CSS -->
 
-    <!-- Professional GenAI‑ERA Brand Styles -->
+    <!-- GenAI‑ERA Brand Styles -->
+    <link rel="stylesheet" href="assets/css/brand.css" />
     <style>
-      :root {
-        --brand-orange: #f7931e;
-        --brand-navy: #0d3b66;
-        --brand-light-gray: #f8f9fa;
-        --brand-dark-gray: #343a40;
-        --brand-white: #ffffff;
-      }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Poppins', sans-serif; line-height: 1.6; padding-top: 72px; }
+      /* Page-specific overrides */
 
-      /* Scroll margin to prevent fixed navbar from covering section headers */
-      #vision-block { scroll-margin-top: 80px; }
-
-      /* Header & Navigation */
-  .navbar-brand { font-weight: 800; letter-spacing: 0.5px; }
-  .navbar-dark.bg-dark { background-color: var(--brand-navy) !important; }
-  .navbar-dark .navbar-nav .nav-link { color: #fff; font-weight: 500; }
-  .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active { color: var(--brand-orange); }
-  /* Navbar brand with logo */
-  .navbar-brand { display: inline-flex; align-items: center; gap: 10px; }
-  .navbar-brand .logo-img { height: 34px; width: auto; display: inline-block; border-radius: 6px; object-fit: contain; }
-  @media (max-width: 576px) { .navbar-brand .logo-img { height: 30px; } }
-  /* Prevent navbar wrap on large screens by tightening spacing */
-  @media (min-width: 992px) {
-    .navbar .container { padding-left: 8px; padding-right: 8px; }
-    .navbar-brand { gap: 8px; margin-right: 8px; }
-    .navbar-brand .brand-text { font-size: 1.05rem; }
-    /* Right-align and prevent wrapping */
-    .navbar .navbar-collapse .navbar-nav { margin-left: auto !important; justify-content: flex-end; }
-    .navbar-dark .navbar-nav { flex-wrap: nowrap; gap: 2px; }
-    /* Reduce font size by ~18% and tighten padding */
-    .navbar-dark .navbar-nav .nav-link { font-size: 0.85rem; padding: 0.35rem 0.50rem; white-space: nowrap; }
-  }
-
-      /* Main Banner */
-  .main-banner .item-1, .main-banner .item-2, .main-banner .item-3 { background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-orange) 100%) !important; color: #fff !important; }
-  .main-banner .hero-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: auto; }
-  .main-banner .hero-block { flex: 0 0 100vw; min-height: 60vh; display: flex; align-items: center; padding: 64px 0; scroll-snap-align: start; }
-  .main-banner .header-text h2 { font-weight: 800; }
-  .main-banner .hero-block { position: relative; }
-  /* Move ALL hero blocks down */
-  .main-banner .hero-block { margin-top: 100px; }
-  /* Readability overlays (lightened) */
-  .main-banner .hero-block::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(13,59,102,0.35) 0%, rgba(247,147,30,0.20) 100%); }
-  /* Removed heavy scrim; rely on subtle gradient + text styling */
-  .main-banner .header-text { position: relative; z-index: 1; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.25); }
-  .main-banner .header-text .category { display: inline-block; font-weight: 700; letter-spacing: .5px; background: rgba(255,255,255,0.18); color: #fff; padding: 4px 10px; border-radius: 999px; }
-  /* On small screens, give the text a gentle backdrop for readability */
-  @media (max-width: 576px) { .main-banner .header-text { background: rgba(0,0,0,0.18); border-radius: 12px; padding: 12px; } }
-  .hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(0,0,0,0.35); color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s ease, transform .2s ease; }
-  .hero-arrow:hover { background: rgba(0,0,0,0.5); transform: translateY(-50%) scale(1.05); }
-  .hero-arrow.prev { left: 16px; }
-  .hero-arrow.next { right: 16px; }
-  .hero-arrow.disabled, .hero-arrow:disabled { opacity: 0.4; pointer-events: none; }
-  @media (max-width: 576px) { .hero-arrow { width: 40px; height: 40px; } }
-  /* Ensure hero arrows remain tappable on phones */
-  @media (max-width: 576px) {
-    .hero-arrow { z-index: 2; }
-    .hero-arrow.disabled, .hero-arrow:disabled { opacity: 0.7; pointer-events: auto; cursor: pointer; }
-  }
-      .main-button a, .main-button a:hover, .orange-button { background-color: var(--brand-orange) !important; border-color: var(--brand-orange) !important; }
-
-      /* Section Headings */
-      .section-heading h2, .section-heading h6 { color: var(--brand-navy) !important; }
-      .section-heading h6 { color: var(--brand-orange) !important; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-      /* Professional Tab System */
-      .professional-tabs { border-bottom: 3px solid var(--brand-light-gray); margin-bottom: 40px; }
-      .professional-tabs .nav-tabs { border: none; justify-content: center; }
-      .professional-tabs .nav-link { border: none; border-radius: 0; padding: 15px 30px; font-weight: 600; color: var(--brand-dark-gray); background: transparent; border-bottom: 3px solid transparent; transition: all 0.3s ease; }
-      .professional-tabs .nav-link:hover { color: var(--brand-orange); border-bottom: 3px solid var(--brand-orange); }
-      .professional-tabs .nav-link.active { color: var(--brand-navy); border-bottom: 3px solid var(--brand-navy); font-weight: 700; }
-
-      /* Team / Exec Member Cards */
-  .team-member-card { background: var(--brand-white); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 30px; text-align: center; margin-bottom: 30px; transition: all 0.2s ease; height: 100%; }
-      .team-member-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-      .team-member-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--brand-orange); }
-    /* Fine-tune face centering for specific portraits */
-    .team-member-card img.face-center { object-position: 50% 38%; }
-      .team-member-card h4 { color: var(--brand-navy); font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-      .team-member-card .position { color: var(--brand-orange); font-size: 14px; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-      .team-member-card .location { color: #666; font-size: 13px; margin-bottom: 15px; font-style: italic; }
-      .team-member-card .description { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
-      .board-member .team-member-card { border: 2px solid var(--brand-navy); }
-      .board-member .team-member-card img { border: 4px solid var(--brand-navy); width: 140px; height: 140px; }
-      .board-member .team-member-card h4 { font-size: 22px; }
-      .executive-member .team-member-card { border: 2px solid var(--brand-orange); }
-  /* Make executive frames same size as board */
-  .executive-member .team-member-card img { width: 140px; height: 140px; }
-  /* Make entire event cards clickable when a stretched-link exists */
-  .event-card { position: relative; }
-      .social-icons { display: flex; justify-content: center; gap: 10px; padding-left: 0; margin: 0; list-style: none; }
-      .social-icons a { color: #6b7280; }
-      .social-icons a:hover { color: var(--brand-orange); }
-
-    /* Research & Grants cards */
-    .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 10px; }
-  .resource-card { background: var(--brand-white); border-radius: 14px; padding: 22px; box-shadow: 0 10px 24px rgba(0,0,0,0.08); transition: transform .2s ease, box-shadow .2s ease; height: 100%; position: relative; cursor: pointer; }
-  .resource-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
-    .resource-card .badge { display: inline-block; background: var(--brand-orange); color: #fff; font-weight: 700; padding: 6px 10px; border-radius: 10px; font-size: 12px; letter-spacing: .3px; margin-bottom: 10px; }
-    .resource-card h5 { color: var(--brand-navy); font-weight: 700; line-height: 1.3; margin: 6px 0 10px; }
-    .resource-card p { color: #4b5563; margin-bottom: 10px; }
-    /* Unbold text inside News (milestones) section while keeping semantic <strong> markup */
-    .section.milestones .milestone-content,
-    .section.milestones .milestone-content h4,
-    .section.milestones .milestone-content p,
-    .section.milestones .milestone-content strong {
-      font-weight: 400 !important;
-    }
-    .resource-card .meta { color: #6b7280; font-size: 13px; }
-  .resource-card a.stretched-link { position: absolute; inset: 0; z-index: 1; color: inherit; }
-  /* Visible affordances: focus outline and hover hint */
-  .resource-card a.stretched-link:focus-visible { outline: 3px solid rgba(247,147,30,0.6); outline-offset: 4px; border-radius: 12px; }
-  .resource-card:focus-within { box-shadow: 0 16px 36px rgba(0,0,0,0.14), 0 0 0 3px rgba(247,147,30,0.28); }
-  .resource-card::after { content: 'Open →'; position: absolute; right: 12px; bottom: 12px; font-size: 12px; font-weight: 700; color: var(--brand-orange); background: rgba(247,147,30,0.08); padding: 4px 8px; border-radius: 999px; opacity: 0; transform: translateY(4px); transition: opacity .15s ease, transform .15s ease; pointer-events: none; }
-  .resource-card:hover::after, .resource-card:focus-within::after { opacity: 1; transform: translateY(0); }
-
-      /* Footer social icons: larger and more prominent */
-      .footer-social { gap: 16px; }
-      .footer-social a {
-        font-size: 24px; /* bigger icon */
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        display: inline-flex;
+      /* News announcement strip */
+      .news-announce {
+        display: flex;
         align-items: center;
-        justify-content: center;
-        background: var(--brand-navy);
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        background: linear-gradient(135deg, var(--brand-navy) 0%, #1a4e80 100%);
+        border-radius: 12px;
+        padding: 14px 20px;
         color: #fff;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
-        /* Mobile tap friendliness */
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-        pointer-events: auto;
-        position: relative;
-        z-index: 10;
+        box-shadow: 0 6px 20px rgba(13,59,102,0.22);
       }
-      .footer-social a:hover {
+      .news-announce-badge {
         background: var(--brand-orange);
         color: #fff;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        font-size: .68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
-      /* Ensure the icon glyph doesn't eat taps */
-      .footer-social a i { pointer-events: none; }
-      /* Keep footer above any stray overlays */
-      footer { position: relative; z-index: 10; }
-      /* Prevent preloader overlay from intercepting taps */
-      #js-preloader { pointer-events: none; }
-  /* Back to top button */
-  .back-to-top { position: fixed; right: 18px; bottom: 18px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--brand-orange); color: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(0,0,0,0.2); cursor: pointer; opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s linear .2s, transform .2s ease; z-index: 1030; }
-  .back-to-top.show { opacity: 1; visibility: visible; transition: opacity .2s ease, visibility 0s linear 0s; }
-  .back-to-top:hover { transform: translateY(-2px); }
-
-      /* Event Cards */
-  .event-card { background: var(--brand-white); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; margin-bottom: 30px; transition: all 0.2s ease; }
-      .event-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-      .event-card img { width: 100%; height: 200px; object-fit: cover; }
-      .event-card .event-content { padding: 25px; }
-      .event-category { background: var(--brand-orange); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; margin-bottom: 15px; }
-
-  /* Events: equal-height cards */
-  .events .row { align-items: stretch; }
-  .events .col-lg-4.col-md-6 { display: flex; }
-  .events .event-card { display: flex; flex-direction: column; height: 100%; width: 100%; }
-  .events .event-card .event-content { display: flex; flex-direction: column; flex: 1 1 auto; }
-  .events .event-card .event-content .orange-button { margin-top: auto; align-self: flex-start; }
-
-  /* Modal article spacing for readability */
-  .modal-article p { margin-bottom: 1.1rem; }
-  .modal-article h6 { margin-top: 1.4rem; margin-bottom: 0.75rem; }
-
-  /* Program Cards equal height */
-  .events_item { display: flex; flex-direction: column; height: 100%; background: #fff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; }
-  .events_item .down-content { margin-top: auto; padding-bottom: 16px; }
-  .events_item .thumb img { width: 100%; height: 200px; object-fit: cover; }
-
-      /* Fun Facts */
-      .fun-facts { background: linear-gradient(135deg, var(--brand-navy), var(--brand-orange)); color: white; }
-      .fun-facts .timer { color: white !important; font-size: 48px !important; font-weight: 700; }
-
-      /* Tools */
-      .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
-  .tool-item { background: var(--brand-white); border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.2s ease; position: relative; cursor: pointer; }
-      .tool-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-    .tool-item a.tool-link { display: block; color: inherit; text-decoration: none; }
-    .tool-item a.tool-link:focus-visible { outline: 2px solid var(--brand-orange); outline-offset: 3px; border-radius: 8px; }
-      .tool-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--brand-orange), #ff6b35); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-weight: 700; }
-      /* Hover hint and focus ring for tool cards */
-      .tool-item::after { content: 'Open →'; position: absolute; right: 12px; bottom: 12px; font-size: 12px; font-weight: 700; color: var(--brand-orange); background: rgba(247,147,30,0.08); padding: 4px 8px; border-radius: 999px; opacity: 0; transform: translateY(4px); transition: opacity .15s ease, transform .15s ease; pointer-events: none; }
-      .tool-item:hover::after, .tool-item:focus-within::after { opacity: 1; transform: translateY(0); }
-      .tool-item:focus-within { box-shadow: 0 10px 28px rgba(0,0,0,0.16), 0 0 0 3px rgba(247,147,30,0.28); }
-
-      /* Programs Filter */
-      .event_filter { display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; padding: 0; list-style: none; }
-      .event_filter li { margin: 5px 10px; }
-      .event_filter a { padding: 10px 25px; background: var(--brand-light-gray); color: var(--brand-dark-gray); text-decoration: none; border-radius: 25px; font-weight: 500; transition: all 0.3s ease; }
-      .event_filter a.is_active, .event_filter a:hover { background: var(--brand-orange); color: white; }
-
-      /* Programs (Core Services) equal-height cards */
-      .programs-section {
+      .news-announce-text {
+        flex: 1 1 240px;
+        font-size: .92rem;
+        font-weight: 500;
+        margin: 0;
+      }
+      .news-announce-actions {
         display: flex;
-        justify-content: center;
-        align-items: stretch;
+        gap: 10px;
         flex-wrap: wrap;
-        gap: 24px;
-        padding: 40px 0;
+        flex-shrink: 0;
       }
-      .program-card { 
-        flex: 1 1 320px;
-        background-color: #f9f9ff;
-        border-radius: 16px;
-        padding: 24px;
+      .news-announce-actions .btn-article {
+        background: rgba(255,255,255,0.18);
+        color: #fff;
+        border: 1.5px solid rgba(255,255,255,0.45);
+        border-radius: 8px;
+        padding: 5px 14px;
+        font-size: .82rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background .2s ease, border-color .2s ease;
+      }
+      .news-announce-actions .btn-article:hover {
+        background: rgba(255,255,255,0.3);
+        border-color: #fff;
+        color: #fff;
+      }
+      .news-announce-actions .btn-news {
+        background: var(--brand-orange);
+        color: #fff;
+        border: 1.5px solid var(--brand-orange);
+        border-radius: 8px;
+        padding: 5px 14px;
+        font-size: .82rem;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background .2s ease, box-shadow .2s ease;
+      }
+      .news-announce-actions .btn-news:hover {
+        background: #d97b0a;
+        border-color: #d97b0a;
+        box-shadow: 0 4px 12px rgba(247,147,30,0.4);
+        color: #fff;
+      }
+
+      /* News section footer CTA */
+      .news-section-footer {
+        margin-top: 36px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(13,59,102,0.1);
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        transition: transform 0.2s ease;
-        min-height: 380px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
       }
-      .program-card:hover { transform: translateY(-6px); }
-      .program-card .icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 14px; background: linear-gradient(135deg, var(--brand-orange), #ff9f4d); box-shadow: 0 6px 16px rgba(0,0,0,0.08); margin-bottom: 14px; }
-      .program-card .icon img { width: 36px; height: 36px; object-fit: contain; filter: brightness(0) invert(1); }
-      .program-card h4 { color: var(--brand-navy); font-weight: 700; margin: 8px 0 10px; }
-      .program-card p { color: #4b5563; margin-bottom: 16px; }
-      .program-card .discover-btn, .program-card .main-button a {
-        margin-top: auto;
-        align-self: flex-start;
+      .news-section-footer p {
+        margin: 0;
+        color: #6b7280;
+        font-size: .88rem;
       }
-      @media (max-width: 576px) { .program-card { min-height: 340px; } }
-
-      /* Modern modal visuals */
-      .modal-content { border: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.25); }
-      .modal-header { border-bottom: 0; padding: 16px 20px; }
-      .modal-body { padding: 0 20px 20px; }
-      .modal-footer { border-top: 0; padding: 16px 20px 20px; }
-
-      /* Modal hero wrapper with subtle dark overlay */
-      .modal-hero-wrap { position: relative; }
-      .modal-hero-wrap::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
-      .modal-hero { width: 100%; height: 300px; object-fit: cover; display: block; }
-      @media (max-width: 576px) { .modal-hero { height: 220px; } }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .professional-tabs .nav-link { padding: 10px 15px; font-size: 14px; }
-        .team-member-card img { width: 100px; height: 100px; }
-        .board-member .team-member-card img { width: 120px; height: 120px; }
-        .executive-member .team-member-card img { width: 120px; height: 120px; }
+      .news-section-footer .btn-visit-news {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--brand-navy);
+        color: #fff;
+        border-radius: 10px;
+        padding: 10px 22px;
+        font-size: .88rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+        box-shadow: 0 4px 14px rgba(13,59,102,0.20);
       }
-  /* Preloader fallback */
-  .js-preloader.loaded { opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility 0s linear .3s; }
-
-  /* Reveal-on-scroll animations (faster) */
-  .reveal-up, .reveal-left, .reveal-right { opacity: 0; will-change: transform, opacity; transition: opacity var(--reveal-speed, .18s) cubic-bezier(.2,.8,.2,1), transform var(--reveal-speed, .18s) cubic-bezier(.2,.8,.2,1); transition-delay: var(--reveal-delay, 0s); }
-    .reveal-up { transform: translateY(16px); }
-    .reveal-left { transform: translateX(-20px); }
-    .reveal-right { transform: translateX(20px); }
-      .in-view { opacity: 1 !important; transform: none !important; }
-
-      /* Respect reduced motion */
-      @media (prefers-reduced-motion: reduce) {
-        .reveal-up, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+      .news-section-footer .btn-visit-news:hover {
+        background: var(--brand-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(247,147,30,0.30);
+        color: #fff;
       }
-
-      /* High-contrast text helpers */
-      .text-section h1, .text-section h2, .text-section h3,
-      .text-section p, .text-section a { color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
-      .text-section a.btn { text-shadow: none; }
-  /* Webinars */
-  .webinar-card { background: #fff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 20px; height: 100%; }
-  .webinar-card h4 { color: var(--brand-navy); font-weight: 700; }
-  .webinar-card a { color: var(--brand-navy); font-weight: 600; }
-  .webinar-card a:hover { color: var(--brand-orange); }
-
-      /* Milestones & Celebrations */
-      .milestones { background: var(--brand-light-gray); }
-      .milestone-card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08); display: flex; flex-direction: column; height: 100%; transition: transform .2s ease, box-shadow .2s ease; }
-      .milestone-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
-      .milestone-thumb img { width: 100%; height: 320px; object-fit: cover; display: block; }
-      .milestone-content { padding: 18px 20px 20px; }
-      .milestone-content h4 { color: var(--brand-navy); margin-bottom: 8px; font-weight: 700; }
-      .milestone-content p { color: #4b5563; margin: 0; }
-      /* News & Blog uses default section heading colors on home page */
+      .news-section-footer .btn-visit-news .arrow {
+        transition: transform .2s ease;
+      }
+      .news-section-footer .btn-visit-news:hover .arrow {
+        transform: translateX(4px);
+      }
     </style>
   </head>
 
@@ -575,29 +407,29 @@
         <div class="row g-4 mb-2">
           <!-- Most recent first: 13 Mar 2026 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><img src="assets/images/event-07.jpeg" alt="GENAI‑ERA webinar on AI detection and credibility in research" /><div class="event-content"><span class="event-category">GENAI‑ERA Webinar</span><h4>Can Reviewers Detect AI Use, and Does it Affect Credibility?</h4><p class="text-muted">Explore how AI-assisted writing is detected in peer review, and how AI use shapes credibility, ethics, and academic integrity in African and global research.</p><p class="mb-2"><strong>Date:</strong> 13 Mar 2026 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/yUNhQtdvxUqyPyH58" target="_blank" rel="noopener" aria-label="Register for GENAI‑ERA webinar Can Reviewers Detect AI Use, and Does it Affect Credibility?"></a></div></div>
+            <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><div class="event-img-wrap"><img src="assets/images/event-07.jpeg" alt="GENAI‑ERA webinar on AI detection and credibility in research" /></div><div class="event-content"><span class="event-category">GENAI‑ERA Webinar</span><h4>Can Reviewers Detect AI Use, and Does it Affect Credibility?</h4><p class="text-muted">Explore how AI-assisted writing is detected in peer review, and how AI use shapes credibility, ethics, and academic integrity in African and global research.</p><p class="mb-2"><strong>Date:</strong> 13 Mar 2026 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/yUNhQtdvxUqyPyH58" target="_blank" rel="noopener" aria-label="Register for GENAI‑ERA webinar Can Reviewers Detect AI Use, and Does it Affect Credibility?"></a></div></div>
           </div>
           <!-- 19 Sept 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-left h-100" style="--reveal-delay:.04s"><img src="assets/images/event-06.jpg" alt="AI Policy &amp; Ethics Forum" /><div class="event-content"><span class="event-category">UNESCO Webinar</span><h4>AI Policy &amp; Ethics Forum</h4><p class="text-muted">GenAI‑ERA is pleased to invite you to a special webinar on the UNESCO Artificial Intelligence Framework for Students, an important guide designed to enhance students’ understanding and responsible engagement with AI.</p><p class="mb-2"><strong>Date:</strong> 19 Sept 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/WroZKhn2sNyT5UXY8" target="_blank" rel="noopener" aria-label="Register for AI Policy &amp; Ethics Forum (UNESCO)"></a></div></div>
+            <div class="event-card reveal-left h-100" style="--reveal-delay:.04s"><div class="event-img-wrap"><img src="assets/images/event-06.jpg" alt="AI Policy &amp; Ethics Forum" /></div><div class="event-content"><span class="event-category">UNESCO Webinar</span><h4>AI Policy &amp; Ethics Forum</h4><p class="text-muted">GenAI‑ERA is pleased to invite you to a special webinar on the UNESCO Artificial Intelligence Framework for Students, an important guide designed to enhance students’ understanding and responsible engagement with AI.</p><p class="mb-2"><strong>Date:</strong> 19 Sept 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/WroZKhn2sNyT5UXY8" target="_blank" rel="noopener" aria-label="Register for AI Policy &amp; Ethics Forum (UNESCO)"></a></div></div>
           </div>
           <!-- 29 Aug 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-up h-100" style="--reveal-delay:.08s"><img src="assets/images/event-04.jpg" alt="GenAI Club Launch &amp; Networking" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>Webinar on Prompt Engineering</h4><p class="text-muted">Practical AI Prompt Strategies for Designing Authentic Curriculum in Underserved Contexts.</p><p class="mb-2"><strong>Date:</strong> 29 Aug 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 1 Hour &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for GenAI Club Launch &amp; Networking"></a></div></div>
+            <div class="event-card reveal-up h-100" style="--reveal-delay:.08s"><div class="event-img-wrap"><img src="assets/images/event-04.jpg" alt="GenAI Club Launch &amp; Networking" /></div><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>Webinar on Prompt Engineering</h4><p class="text-muted">Practical AI Prompt Strategies for Designing Authentic Curriculum in Underserved Contexts.</p><p class="mb-2"><strong>Date:</strong> 29 Aug 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 1 Hour &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for GenAI Club Launch &amp; Networking"></a></div></div>
           </div>
         </div>
         <div class="row g-4 mt-2">
           <!-- 27 Apr 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-right h-100" style="--reveal-delay:.12s"><img src="assets/images/event-01.jpg" alt="A Call For Forum Discussion: GenAI in African Classrooms" /><div class="event-content"><span class="event-category">Community Meetup</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="text-muted">Effective Use of Artificial Intelligence in Education</p><p class="mb-2"><strong>Date:</strong> 27 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
+            <div class="event-card reveal-right h-100" style="--reveal-delay:.12s"><div class="event-img-wrap"><img src="assets/images/event-01.jpg" alt="A Call For Forum Discussion: GenAI in African Classrooms" /></div><div class="event-content"><span class="event-category">Community Meetup</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="text-muted">Effective Use of Artificial Intelligence in Education</p><p class="mb-2"><strong>Date:</strong> 27 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
           </div>
           <!-- 12 Apr 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-left h-100" style="--reveal-delay:.16s"><img src="assets/images/event-03.jpg" alt="AI in Educational Research" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
+            <div class="event-card reveal-left h-100" style="--reveal-delay:.16s"><div class="event-img-wrap"><img src="assets/images/event-03.jpg" alt="AI in Educational Research" /></div><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
           </div>
           <!-- 08 Mar 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-up h-100" style="--reveal-delay:.20s"><img src="assets/images/event-02.jpg" alt="Effective Use of Artificial Intelligence in Education" /><div class="event-content"><span class="event-category">GenAI Club Launch &amp; Networking</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for Effective Use of AI in Education (Prompt Engineering)"></a></div></div>
+            <div class="event-card reveal-up h-100" style="--reveal-delay:.20s"><div class="event-img-wrap"><img src="assets/images/event-02.jpg" alt="Effective Use of Artificial Intelligence in Education" /></div><div class="event-content"><span class="event-category">GenAI Club Launch &amp; Networking</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for Effective Use of AI in Education (Prompt Engineering)"></a></div></div>
           </div>
           <!-- TBA: place last -->
           
@@ -722,10 +554,15 @@
             </div>
           </div>
         </div>
-        <div class="row mb-3">
-          <div class="col text-center">
-            <div class="alert alert-warning py-2 mb-0" role="status">
-              <strong>New:</strong> Read our feature on Google Scholar profiles for educators &amp; researchers — <a href="#" data-bs-toggle="modal" data-bs-target="#modal-google-scholar-profile">open full article</a>.
+        <div class="row mb-4">
+          <div class="col">
+            <div class="news-announce" role="status" aria-live="polite">
+              <span class="news-announce-badge">New</span>
+              <p class="news-announce-text" style="color:#fff;">We just published: <strong style="color:#fff;">The Importance of a Google Scholar Profile for Educators &amp; Researchers</strong> — a must-read for every academic.</p>
+              <div class="news-announce-actions">
+                <a href="#" class="btn-article" data-bs-toggle="modal" data-bs-target="#modal-google-scholar-profile">Read full article</a>
+                <a href="news.html" class="btn-news">Visit News &amp; Blog &rarr;</a>
+              </div>
             </div>
           </div>
         </div>
@@ -789,6 +626,17 @@
             </div>
           </div>
         </div>
+
+        <!-- News section footer -->
+        <div class="news-section-footer">
+          <p>Explore leadership stories, research updates, and community impact across the GenAI‑ERA network.</p>
+          <a href="news.html" class="btn-visit-news" aria-label="Go to News and Blog page">
+            <i class="fas fa-newspaper" aria-hidden="true"></i>
+            See all stories on News &amp; Blog
+            <span class="arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </div>
+
       </div>
     </section>
     <!-- ***** News Section End ***** -->
@@ -889,28 +737,28 @@
         <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>AI Tools</h6><h2>Platforms We Build &amp; Use</h2></div></div></div>
         <div class="tools-grid">
           <!-- Original GenAI‑ERA Tools (highlighted first) -->
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://chatgpt.com/g/g-ei2C8xiFM-culturally-responsive-lesson-planner-crlp" target="_blank" rel="noopener" aria-label="Open Culturally Responsive Lesson Planner (CRLP)">
               <div class="tool-icon">CRLP</div>
               <h5>Culturally Responsive Lesson Planner</h5>
               <p>Interactive, theory‑grounded lesson planning with required cultural slots (language, locale, assets, representation).</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://chatgpt.com/g/g-vAYgx3lLs-culturally-responsive-science-assessment-generator" target="_blank" rel="noopener" aria-label="Open CR Science Assessment Generator">
               <div class="tool-icon">CRSciA</div>
               <h5>CR Science Assessment Generator</h5>
               <p>Generates and refines culturally responsive science items with rubric‑guided validation.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://youtu.be/XkeO_Jr1f5A" target="_blank" rel="noopener" aria-label="Watch Teacher Voice Agent video on YouTube">
               <div class="tool-icon">Voice</div>
               <h5>Teacher Voice Agent</h5>
               <p>A Context-Aware and Region-Specific AI Tool for Ghana Teacher Education.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://chatgpt.com/g/g-Fs5wk2FsM-inductive-thematic-analysis" target="_blank" rel="noopener" aria-label="Open Inductive Thematic Analysis tool">
               <div class="tool-icon">ITA</div>
               <h5>Inductive Thematic Analysis</h5>
@@ -919,28 +767,28 @@
           </div>
 
           <!-- Personalized Learning (sample tools) -->
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://labs.google/learn-your-way/" target="_blank" rel="noopener" aria-label="Open Learn Your Way">
               <div class="tool-icon">LearnLM</div>
               <h5>Learn Your Way</h5>
               <p>Turns PDFs/chapters into interactive, personalized lessons with adjustable reading levels.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://www.khanacademy.org/khanmigo" target="_blank" rel="noopener" aria-label="Open Khanmigo">
               <div class="tool-icon">Khan</div>
               <h5>Khanmigo</h5>
               <p>Virtual one‑on‑one tutor inside Khan Academy lessons; scaffolds problem‑solving.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://quizlet.com/" target="_blank" rel="noopener" aria-label="Open Quizlet">
               <div class="tool-icon">Quizlet</div>
               <h5>Quizlet</h5>
               <p>Creates study sets and adaptive practice tests from notes for efficient revision.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://www.duolingo.com/" target="_blank" rel="noopener" aria-label="Open Duolingo">
               <div class="tool-icon">Duo</div>
               <h5>Duolingo</h5>

@@ -17,26 +17,7 @@
     <link rel="stylesheet" href="assets/css/animate.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
-    <style>
-      :root { --brand-orange:#f7931e; --brand-navy:#0d3b66; --brand-light-gray:#f8f9fa; --brand-white:#fff; }
-      html { scroll-behavior:smooth; }
-      body { font-family:'Poppins',sans-serif; line-height:1.6; padding-top:72px; }
-      .navbar-dark.bg-dark { background-color: var(--brand-navy) !important; }
-      .navbar-dark .navbar-nav .nav-link { color:#fff; font-weight:500; }
-      .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active { color: var(--brand-orange); }
-
-      /* Page hero with brand gradient (matching News tab) */
-      .page-hero { background: linear-gradient(135deg, var(--brand-navy), var(--brand-orange)); color:#fff; padding:64px 0; }
-      .page-hero h1 { font-weight:800; color:#fff; text-shadow: 0 2px 6px rgba(0,0,0,0.25); }
-      .page-hero p { max-width: 760px; color:#fff; text-shadow: 0 2px 6px rgba(0,0,0,0.25); }
-
-      /* Desktop navbar alignment tweaks */
-      @media (min-width: 992px) {
-        #navbarMain { justify-content: flex-end; }
-        .navbar .navbar-nav { flex-wrap: nowrap; white-space: nowrap; font-size: 0.85rem; }
-        .navbar .navbar-nav .nav-link { padding-left: .5rem; padding-right: .5rem; }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/brand.css" />
   </head>
   <body>
     <header class="header-area">
@@ -87,28 +68,28 @@
         </div>
         <div class="tools-grid">
           <!-- Original GenAI‑ERA Tools -->
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://chatgpt.com/g/g-ei2C8xiFM-culturally-responsive-lesson-planner-crlp" target="_blank" rel="noopener" aria-label="Open Culturally Responsive Lesson Planner (CRLP)">
               <div class="tool-icon">CRLP</div>
               <h5>Culturally Responsive Lesson Planner</h5>
               <p>Interactive, theory‑grounded lesson planning with required cultural slots (language, locale, assets, representation).</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://chatgpt.com/g/g-vAYgx3lLs-culturally-responsive-science-assessment-generator" target="_blank" rel="noopener" aria-label="Open CR Science Assessment Generator">
               <div class="tool-icon">CRSciA</div>
               <h5>CR Science Assessment Generator</h5>
               <p>Generates and refines culturally responsive science items with rubric‑guided validation.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://youtu.be/XkeO_Jr1f5A" target="_blank" rel="noopener" aria-label="Watch Teacher Voice Agent video on YouTube">
               <div class="tool-icon">Voice</div>
               <h5>Teacher Voice Agent</h5>
               <p>A Context-Aware and Region-Specific AI Tool for Ghana Teacher Education.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="genai-era">
             <a class="tool-link" href="https://chatgpt.com/g/g-Fs5wk2FsM-inductive-thematic-analysis" target="_blank" rel="noopener" aria-label="Open Inductive Thematic Analysis tool">
               <div class="tool-icon">ITA</div>
               <h5>Inductive Thematic Analysis</h5>
@@ -117,42 +98,42 @@
           </div>
 
           <!-- Personalized Learning -->
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://labs.google/learn-your-way/" target="_blank" rel="noopener" aria-label="Open Learn Your Way">
               <div class="tool-icon">LearnLM</div>
               <h5>Learn Your Way</h5>
               <p>Turns PDFs/chapters into interactive, personalized lessons with adjustable reading levels.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://www.khanacademy.org/khanmigo" target="_blank" rel="noopener" aria-label="Open Khanmigo">
               <div class="tool-icon">Khan</div>
               <h5>Khanmigo</h5>
               <p>Virtual one‑on‑one tutor inside Khan Academy lessons; scaffolds problem‑solving.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://quizlet.com/" target="_blank" rel="noopener" aria-label="Open Quizlet">
               <div class="tool-icon">Quizlet</div>
               <h5>Quizlet</h5>
               <p>Creates study sets and adaptive practice tests from notes for efficient revision.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://www.duolingo.com/" target="_blank" rel="noopener" aria-label="Open Duolingo">
               <div class="tool-icon">Duo</div>
               <h5>Duolingo</h5>
               <p>Personalized language tutoring with mistake explanations and role‑play scenarios.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://www.century.tech/" target="_blank" rel="noopener" aria-label="Open CENTURY">
               <div class="tool-icon">CENTURY</div>
               <h5>CENTURY</h5>
               <p>Diagnoses knowledge gaps and prescribes tailored learning paths and content nuggets.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="learning">
             <a class="tool-link" href="https://socratic.org/" target="_blank" rel="noopener" aria-label="Open Socratic">
               <div class="tool-icon">Socratic</div>
               <h5>Socratic</h5>
@@ -161,35 +142,35 @@
           </div>
 
           <!-- Teacher Productivity -->
-          <div class="tool-item">
+          <div class="tool-item" data-category="productivity">
             <a class="tool-link" href="https://www.magicschool.ai/" target="_blank" rel="noopener" aria-label="Open MagicSchool.ai">
               <div class="tool-icon">MS</div>
               <h5>MagicSchool.ai</h5>
               <p>Generates differentiated content, lesson plans, rubrics, IEP drafts, and more.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="productivity">
             <a class="tool-link" href="https://www.briskteaching.com/" target="_blank" rel="noopener" aria-label="Open Brisk Teaching">
               <div class="tool-icon">Brisk</div>
               <h5>Brisk Teaching</h5>
               <p>Browser extension to level text, generate feedback, and create quizzes from documents.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="productivity">
             <a class="tool-link" href="https://www.eduaide.ai/" target="_blank" rel="noopener" aria-label="Open Eduaide.ai">
               <div class="tool-icon">Eduaide</div>
               <h5>Eduaide.Ai</h5>
               <p>Creates instructional materials, educational games, organizers, and lesson plans.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="productivity">
             <a class="tool-link" href="https://curipod.com/" target="_blank" rel="noopener" aria-label="Open Curipod">
               <div class="tool-icon">Curipod</div>
               <h5>Curipod</h5>
               <p>Instantly builds interactive lesson slides with polls, word clouds, and questions.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="productivity">
             <a class="tool-link" href="https://www.gradescope.com/" target="_blank" rel="noopener" aria-label="Open Gradescope">
               <div class="tool-icon">Gradescope</div>
               <h5>Gradescope</h5>
@@ -198,63 +179,63 @@
           </div>
 
           <!-- Content Creation (Media/Text) -->
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://www.canva.com/ai-image-generator/" target="_blank" rel="noopener" aria-label="Open Canva Magic Media">
               <div class="tool-icon">Canva</div>
               <h5>Canva (Magic Media)</h5>
               <p>Generates images, videos, and presentations from prompts within a design suite.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://firefly.adobe.com/" target="_blank" rel="noopener" aria-label="Open Adobe Firefly">
               <div class="tool-icon">Firefly</div>
               <h5>Adobe Firefly</h5>
               <p>Creates images and short videos with commercial safety and Adobe integration.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://www.heygen.com/" target="_blank" rel="noopener" aria-label="Open HeyGen">
               <div class="tool-icon">HeyGen</div>
               <h5>HeyGen</h5>
               <p>Produces professional videos using realistic AI avatars from simple scripts.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://www.synthesia.io/" target="_blank" rel="noopener" aria-label="Open Synthesia">
               <div class="tool-icon">Synthesia</div>
               <h5>Synthesia</h5>
               <p>Interactive AI‑avatar videos with quizzes, branching, and 1‑click translation.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://www.descript.com/" target="_blank" rel="noopener" aria-label="Open Descript">
               <div class="tool-icon">Descript</div>
               <h5>Descript</h5>
               <p>Text‑based editing for video and podcasts; edit media by editing the transcript.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://www.steve.ai/" target="_blank" rel="noopener" aria-label="Open Steve.AI">
               <div class="tool-icon">Steve</div>
               <h5>Steve.AI</h5>
               <p>Converts text scripts into full videos automatically using stock assets.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://gamma.app/" target="_blank" rel="noopener" aria-label="Open Gamma">
               <div class="tool-icon">Gamma</div>
               <h5>Gamma</h5>
               <p>Auto‑creates attractive, engaging presentations from brief text outlines.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://quillbot.com/" target="_blank" rel="noopener" aria-label="Open QuillBot">
               <div class="tool-icon">QuillBot</div>
               <h5>QuillBot</h5>
               <p>Paraphrasing, rewriting, and summarization to improve clarity and grammar.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="content">
             <a class="tool-link" href="https://diffit.me/" target="_blank" rel="noopener" aria-label="Open Diffit">
               <div class="tool-icon">Diffit</div>
               <h5>Diffit</h5>
@@ -263,28 +244,28 @@
           </div>
 
           <!-- General LLM / Assistant -->
-          <div class="tool-item">
+          <div class="tool-item" data-category="llm">
             <a class="tool-link" href="https://chat.openai.com/" target="_blank" rel="noopener" aria-label="Open ChatGPT">
               <div class="tool-icon">ChatGPT</div>
               <h5>ChatGPT</h5>
               <p>Versatile assistant for brainstorming, summarizing, outlining, and light creation.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="llm">
             <a class="tool-link" href="https://gemini.google.com/" target="_blank" rel="noopener" aria-label="Open Google Gemini">
               <div class="tool-icon">Gemini</div>
               <h5>Google Gemini</h5>
               <p>Conversational assistant for answers, summaries, and content across Google apps.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="llm">
             <a class="tool-link" href="https://copilot.microsoft.com/" target="_blank" rel="noopener" aria-label="Open Microsoft Copilot">
               <div class="tool-icon">Copilot</div>
               <h5>Microsoft Copilot</h5>
               <p>Assistant in Microsoft 365 for research, drafting, and productivity tasks.</p>
             </a>
           </div>
-          <div class="tool-item">
+          <div class="tool-item" data-category="llm">
             <a class="tool-link" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Open Perplexity AI">
               <div class="tool-icon">Perplexity</div>
               <h5>Perplexity AI</h5>
@@ -311,8 +292,6 @@
     <script src="vendor/jquerry/jquery.min.js"></script>
     <script src="vendor/boostrap/js/bootstrap.min.js"></script>
     <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/counter.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
