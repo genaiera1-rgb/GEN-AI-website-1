@@ -200,6 +200,10 @@
   .events .event-card .event-content { display: flex; flex-direction: column; flex: 1 1 auto; }
   .events .event-card .event-content .orange-button { margin-top: auto; align-self: flex-start; }
 
+  /* Modal article spacing for readability */
+  .modal-article p { margin-bottom: 1.1rem; }
+  .modal-article h6 { margin-top: 1.4rem; margin-bottom: 0.75rem; }
+
   /* Program Cards equal height */
   .events_item { display: flex; flex-direction: column; height: 100%; background: #fff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; }
   .events_item .down-content { margin-top: auto; padding-bottom: 16px; }
@@ -344,7 +348,7 @@
               <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
               <li class="nav-item"><a class="nav-link" href="news.html">News &amp; Blog</a></li>
               <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-              <li class="nav-item"><a class="nav-link" href="#tools">AI Tools</a></li>
+              <li class="nav-item"><a class="nav-link" href="tools.html">AI Tools</a></li>
               <li class="nav-item"><a class="nav-link" href="#research">Publications</a></li>
               <li class="nav-item"><a class="nav-link" href="#grants">Grant Opportunities</a></li>
               <li class="nav-item"><a class="nav-link" href="#contact">Partner with Us</a></li>
@@ -463,7 +467,7 @@
             <h5 class="modal-title" id="modal-literacy-label">GenAI Literacy Programs</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body modal-article">
             <p>At GenAI‑ERA Hub, discovery goes beyond learning about AI—it is about reimagining education through innovation, inclusivity, and African perspectives. Our initiatives are grounded in the belief that educators are central to shaping how Generative AI transforms teaching, learning, and research across the continent. Through our programs, we invite educators, researchers, and policymakers to join a movement that bridges global AI competencies with local educational realities.</p>
             <p>Participants in our literacy programs gain access to a dynamic ecosystem of resources—from interactive AI‑powered teaching tools and collaborative research opportunities to mentorship circles led by international experts. Each training module is intentionally designed to strengthen educators’ confidence in using Generative AI responsibly and creatively, emphasizing classroom relevance, cultural authenticity, and ethical engagement.</p>
             <p>Our “AI for Educators and Researchers” series empowers participants to:</p>
@@ -568,7 +572,7 @@
     <div class="section events" id="events">
       <div class="container">
   <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>Events</h6><h2> GenAI‑ERA Events</h2></div></div></div>
-        <div class="row">
+        <div class="row g-4 mb-2">
           <!-- Most recent first: 13 Mar 2026 -->
           <div class="col-lg-4 col-md-6">
             <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><img src="assets/images/event-07.jpeg" alt="GENAI‑ERA webinar on AI detection and credibility in research" /><div class="event-content"><span class="event-category">GENAI‑ERA Webinar</span><h4>Can Reviewers Detect AI Use, and Does it Affect Credibility?</h4><p class="text-muted">Explore how AI-assisted writing is detected in peer review, and how AI use shapes credibility, ethics, and academic integrity in African and global research.</p><p class="mb-2"><strong>Date:</strong> 13 Mar 2026 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/yUNhQtdvxUqyPyH58" target="_blank" rel="noopener" aria-label="Register for GENAI‑ERA webinar Can Reviewers Detect AI Use, and Does it Affect Credibility?"></a></div></div>
@@ -581,6 +585,8 @@
           <div class="col-lg-4 col-md-6">
             <div class="event-card reveal-up h-100" style="--reveal-delay:.08s"><img src="assets/images/event-04.jpg" alt="GenAI Club Launch &amp; Networking" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>Webinar on Prompt Engineering</h4><p class="text-muted">Practical AI Prompt Strategies for Designing Authentic Curriculum in Underserved Contexts.</p><p class="mb-2"><strong>Date:</strong> 29 Aug 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 1 Hour &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a class="stretched-link" href="https://forms.gle/xZkTD81Pb1ZyduJp6" target="_blank" rel="noopener" aria-label="Register for GenAI Club Launch &amp; Networking"></a></div></div>
           </div>
+        </div>
+        <div class="row g-4 mt-2">
           <!-- 27 Apr 2025 -->
           <div class="col-lg-4 col-md-6">
             <div class="event-card reveal-right h-100" style="--reveal-delay:.12s"><img src="assets/images/event-01.jpg" alt="A Call For Forum Discussion: GenAI in African Classrooms" /><div class="event-content"><span class="event-category">Community Meetup</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="text-muted">Effective Use of Artificial Intelligence in Education</p><p class="mb-2"><strong>Date:</strong> 27 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p></div></div>
@@ -719,15 +725,32 @@
         <div class="row mb-3">
           <div class="col text-center">
             <div class="alert alert-warning py-2 mb-0" role="status">
-              <strong>New:</strong> SAARMSTE guest lecture recap is live — <a href="news.html">see more news</a>.
+              <strong>New:</strong> Read our feature on Google Scholar profiles for educators &amp; researchers — <a href="#" data-bs-toggle="modal" data-bs-target="#modal-google-scholar-profile">open full article</a>.
             </div>
           </div>
         </div>
 
         <div class="row g-4 align-items-stretch">
-          <!-- News Card 1: Dr. Quarshie -->
+          <!-- News Card: Google Scholar Profiles -->
           <div class="col-lg-4 col-md-6">
             <div class="milestone-card reveal-left h-100">
+              <div class="milestone-thumb">
+                <img src="assets/images/celebrate-08.jpeg" alt="The Importance of a Google Scholar Profile for Educators and Researchers" />
+              </div>
+              <div class="milestone-content">
+                <h4>The Importance of a Google Scholar Profile</h4>
+                <p>A Google Scholar profile is now a core part of an academic's digital identity, making research outputs more visible, discoverable, and measurable around the world.</p>
+                <p>By tracking citations and impact through metrics like the h-index and i10-index, educators and researchers can better understand how their work shapes knowledge, policy, and practice—while also strengthening the reputation of their institutions.</p>
+                <p>These metrics provide a transparent way to see which publications are gaining attention, how influence grows over time, and how individual profiles contribute to the broader visibility of their departments and institutions.</p>
+                <p class="mb-0"><em>By Macharious Nabang, GENAI‑ERA Executive</em></p>
+                <p style="margin-top:10px;"><a href="#" data-bs-toggle="modal" data-bs-target="#modal-google-scholar-profile">Read the full article →</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Card 1: Dr. Quarshie -->
+          <div class="col-lg-4 col-md-6">
+            <div class="milestone-card reveal-up h-100">
               <div class="milestone-thumb">
                 <img src="assets/images/celebrate-01.jpg" alt="Celebrating Excellence: Dr. Benjamin Quarshie recognized in Ghana Teacher Prize 2025" />
               </div>
@@ -769,6 +792,54 @@
       </div>
     </section>
     <!-- ***** News Section End ***** -->
+
+    <!-- Google Scholar Profile Full Content Modal -->
+    <div class="modal fade" id="modal-google-scholar-profile" tabindex="-1" aria-labelledby="home-modal-google-scholar-profile-label" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="home-modal-google-scholar-profile-label">The Importance of a Google Scholar Profile for Educators and Researchers</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>In today’s scholarly environment, visibility and impact are as important as publication itself. Academic work achieves its full value only when it is discoverable, accessible, and measurable. One of the most effective tools for achieving this is a Google Scholar profile.</p>
+            <p>A Google Scholar profile is a personal academic page that automatically tracks an author’s publications, citations, and research impact. It serves as a digital academic identity that allows colleagues, students, institutions, and global researchers to easily find and assess one’s scholarly contributions.</p>
+
+            <h6>Why Every Academic or Researcher Needs a Google Scholar Profile</h6>
+            <p>First, a Google Scholar profile enhances research visibility. Publications indexed on Google Scholar become easily searchable worldwide, increasing readership and citations.</p>
+            <p>Second, it supports academic credibility and professional recognition. Funding agencies, promotion committees, journal editors, and collaborators increasingly rely on citation metrics from Google Scholar when assessing research output.</p>
+            <p>Third, it enables accurate tracking of research impact. Instead of manually counting citations, Google Scholar automatically updates citation data as new works reference your publications.</p>
+            <p>Finally, it strengthens institutional ranking and research reputation. When academic staff maintain active and accurate profiles, the collective research impact of the institution becomes more visible globally.</p>
+
+            <h6>Understanding Key Research Metrics</h6>
+            <p>A major advantage of Google Scholar is its use of simple but powerful citation indicators. Among the most important are the h-index and the i10-index.</p>
+
+            <h6>The h-index Explained</h6>
+            <p>The h-index measures both productivity and citation impact. An academic has an h-index of h if they have h publications that have each been cited at least h times.</p>
+            <p>For example, an h-index of 10 means the researcher has 10 papers that have each received at least 10 citations. This index balances quantity and quality, rewarding consistent and impactful scholarship rather than a single highly cited paper.</p>
+            <p>The h-index is widely used in promotion, tenure, and grant evaluations because it reflects sustained academic influence over time.</p>
+
+            <h6>The i10-index Explained</h6>
+            <p>The i10-index represents the number of publications that have received at least 10 citations. It is a simpler metric that highlights how many of an academic’s works have achieved a basic level of recognition within the scholarly community.</p>
+            <p>Although it is mainly used by Google Scholar, the i10-index is helpful for early-career researchers, as it provides a clear picture of growing research influence.</p>
+
+            <h6>Why These Metrics Matter</h6>
+            <p>Citation metrics are not about competition or self-promotion. They provide objective evidence of how research contributes to knowledge, policy, and practice. Understanding one’s h-index and i10-index helps academics identify research strengths, track growth, and plan future scholarly activities strategically.</p>
+            <p>More importantly, these metrics allow institutions to make informed decisions based on transparent and verifiable data.</p>
+
+            <h6>Recommendation</h6>
+            <p>All academic staff are strongly encouraged to create and regularly update their Google Scholar profiles. Publications should be correctly attributed, duplicates removed, and affiliations accurately stated.</p>
+            <p>Maintaining a Google Scholar profile is no longer optional in modern academia. It is a professional responsibility that benefits the individual scholar, the institution, and the wider research community.</p>
+            <p>By taking ownership of our academic visibility and impact, we position ourselves and our institutions for greater recognition, collaboration, and scholarly influence.</p>
+
+            <p class="mt-3 mb-0"><em>By Macharious Nabang<br />GENAI‑ERA Executive.</em></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ***** Leadership Section Start ***** -->
     <div class="team section" id="team">
@@ -817,7 +888,7 @@
       <div class="container">
         <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>AI Tools</h6><h2>Platforms We Build &amp; Use</h2></div></div></div>
         <div class="tools-grid">
-          <!-- Original GenAI‑ERA Tools (keep first) -->
+          <!-- Original GenAI‑ERA Tools (highlighted first) -->
           <div class="tool-item">
             <a class="tool-link" href="https://chatgpt.com/g/g-ei2C8xiFM-culturally-responsive-lesson-planner-crlp" target="_blank" rel="noopener" aria-label="Open Culturally Responsive Lesson Planner (CRLP)">
               <div class="tool-icon">CRLP</div>
@@ -847,7 +918,7 @@
             </a>
           </div>
 
-          <!-- Personalized Learning -->
+          <!-- Personalized Learning (sample tools) -->
           <div class="tool-item">
             <a class="tool-link" href="https://labs.google/learn-your-way/" target="_blank" rel="noopener" aria-label="Open Learn Your Way">
               <div class="tool-icon">LearnLM</div>
@@ -876,151 +947,10 @@
               <p>Personalized language tutoring with mistake explanations and role‑play scenarios.</p>
             </a>
           </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.century.tech/" target="_blank" rel="noopener" aria-label="Open CENTURY">
-              <div class="tool-icon">CENTURY</div>
-              <h5>CENTURY</h5>
-              <p>Diagnoses knowledge gaps and prescribes tailored learning paths and content nuggets.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://socratic.org/" target="_blank" rel="noopener" aria-label="Open Socratic">
-              <div class="tool-icon">Socratic</div>
-              <h5>Socratic</h5>
-              <p>Step‑by‑step explanations for homework via photo or voice, powered by Google AI.</p>
-            </a>
-          </div>
-
-          <!-- Teacher Productivity -->
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.magicschool.ai/" target="_blank" rel="noopener" aria-label="Open MagicSchool.ai">
-              <div class="tool-icon">MS</div>
-              <h5>MagicSchool.ai</h5>
-              <p>Generates differentiated content, lesson plans, rubrics, IEP drafts, and more.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.briskteaching.com/" target="_blank" rel="noopener" aria-label="Open Brisk Teaching">
-              <div class="tool-icon">Brisk</div>
-              <h5>Brisk Teaching</h5>
-              <p>Browser extension to level text, generate feedback, and create quizzes from documents.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.eduaide.ai/" target="_blank" rel="noopener" aria-label="Open Eduaide.ai">
-              <div class="tool-icon">Eduaide</div>
-              <h5>Eduaide.Ai</h5>
-              <p>Creates instructional materials, educational games, organizers, and lesson plans.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://curipod.com/" target="_blank" rel="noopener" aria-label="Open Curipod">
-              <div class="tool-icon">Curipod</div>
-              <h5>Curipod</h5>
-              <p>Instantly builds interactive lesson slides with polls, word clouds, and questions.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.gradescope.com/" target="_blank" rel="noopener" aria-label="Open Gradescope">
-              <div class="tool-icon">Gradescope</div>
-              <h5>Gradescope</h5>
-              <p>Automates grading of written assignments and exams with ML‑assisted workflows.</p>
-            </a>
-          </div>
-
-          <!-- Content Creation (Media/Text) -->
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.canva.com/ai-image-generator/" target="_blank" rel="noopener" aria-label="Open Canva Magic Media">
-              <div class="tool-icon">Canva</div>
-              <h5>Canva (Magic Media)</h5>
-              <p>Generates images, videos, and presentations from prompts within a design suite.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://firefly.adobe.com/" target="_blank" rel="noopener" aria-label="Open Adobe Firefly">
-              <div class="tool-icon">Firefly</div>
-              <h5>Adobe Firefly</h5>
-              <p>Creates images and short videos with commercial safety and Adobe integration.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.heygen.com/" target="_blank" rel="noopener" aria-label="Open HeyGen">
-              <div class="tool-icon">HeyGen</div>
-              <h5>HeyGen</h5>
-              <p>Produces professional videos using realistic AI avatars from simple scripts.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.synthesia.io/" target="_blank" rel="noopener" aria-label="Open Synthesia">
-              <div class="tool-icon">Synthesia</div>
-              <h5>Synthesia</h5>
-              <p>Interactive AI‑avatar videos with quizzes, branching, and 1‑click translation.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.descript.com/" target="_blank" rel="noopener" aria-label="Open Descript">
-              <div class="tool-icon">Descript</div>
-              <h5>Descript</h5>
-              <p>Text‑based editing for video and podcasts; edit media by editing the transcript.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.steve.ai/" target="_blank" rel="noopener" aria-label="Open Steve.AI">
-              <div class="tool-icon">Steve</div>
-              <h5>Steve.AI</h5>
-              <p>Converts text scripts into full videos automatically using stock assets.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://gamma.app/" target="_blank" rel="noopener" aria-label="Open Gamma">
-              <div class="tool-icon">Gamma</div>
-              <h5>Gamma</h5>
-              <p>Auto‑creates attractive, engaging presentations from brief text outlines.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://quillbot.com/" target="_blank" rel="noopener" aria-label="Open QuillBot">
-              <div class="tool-icon">QuillBot</div>
-              <h5>QuillBot</h5>
-              <p>Paraphrasing, rewriting, and summarization to improve clarity and grammar.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://diffit.me/" target="_blank" rel="noopener" aria-label="Open Diffit">
-              <div class="tool-icon">Diffit</div>
-              <h5>Diffit</h5>
-              <p>Generates leveled reading passages and activities for differentiation.</p>
-            </a>
-          </div>
-
-          <!-- General LLM / Assistant -->
-          <div class="tool-item">
-            <a class="tool-link" href="https://chat.openai.com/" target="_blank" rel="noopener" aria-label="Open ChatGPT">
-              <div class="tool-icon">ChatGPT</div>
-              <h5>ChatGPT</h5>
-              <p>Versatile assistant for brainstorming, summarizing, outlining, and light creation.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://gemini.google.com/" target="_blank" rel="noopener" aria-label="Open Google Gemini">
-              <div class="tool-icon">Gemini</div>
-              <h5>Google Gemini</h5>
-              <p>Conversational assistant for answers, summaries, and content across Google apps.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://copilot.microsoft.com/" target="_blank" rel="noopener" aria-label="Open Microsoft Copilot">
-              <div class="tool-icon">Copilot</div>
-              <h5>Microsoft Copilot</h5>
-              <p>Assistant in Microsoft 365 for research, drafting, and productivity tasks.</p>
-            </a>
-          </div>
-          <div class="tool-item">
-            <a class="tool-link" href="https://www.perplexity.ai/" target="_blank" rel="noopener" aria-label="Open Perplexity AI">
-              <div class="tool-icon">Perplexity</div>
-              <h5>Perplexity AI</h5>
-              <p>Advanced research assistant with clear, cited answers and source links.</p>
-            </a>
+        </div>
+        <div class="row mt-4">
+          <div class="col text-center">
+            <a class="btn btn-outline-primary" href="tools.html">View more AI tools</a>
           </div>
         </div>
       </div>
