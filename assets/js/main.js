@@ -320,9 +320,32 @@
   if (closeBtn) { closeBtn.addEventListener('click', closeDrawer); }
   overlay.addEventListener('click', closeDrawer);
 
-  // Close on any nav link tap (slight delay so page can start navigating)
+  // Close on any nav link tap
+  // Same-page anchors (#hash): prevent default, close drawer, THEN scroll once
+  // overflow is restored. External links (news.html etc.) navigate normally.
   drawer.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { setTimeout(closeDrawer, 100); });
+    a.addEventListener('click', function(e) {
+      var href = a.getAttribute('href') || '';
+
+      // Same-page hash link on the current page
+      if (href.charAt(0) === '#') {
+        e.preventDefault();
+        var targetId = href.slice(1);
+        closeDrawer();
+        // Wait for drawer close animation + overflow restored before scrolling
+        setTimeout(function() {
+          var target = document.getElementById(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 400); // slightly longer than the 380ms hide timer
+        return;
+      }
+
+      // External page with an anchor: e.g. "index.html#events" from news.html
+      // Let the browser navigate; just close the drawer first
+      closeDrawer();
+    });
   });
 
   // Swipe-right-to-dismiss
