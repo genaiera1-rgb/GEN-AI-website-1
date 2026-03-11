@@ -864,6 +864,7 @@ footer { position: relative; z-index: 10; }
 
 /* ── Frosted overlay ── */
 .mob-nav-overlay {
+  display: none;           /* Safari: backdrop-filter layers intercept touches even with pointer-events:none — display:none is the only safe default */
   position: fixed;
   inset: 0;
   background: rgba(4, 12, 30, 0.65);
@@ -871,15 +872,10 @@ footer { position: relative; z-index: 10; }
   -webkit-backdrop-filter: blur(5px);
   z-index: 1049;
   opacity: 0;
-  visibility: hidden;
-  pointer-events: none; /* Safari fix: don't block page taps when hidden */
-  transition: opacity 0.32s ease, visibility 0s linear 0.32s;
+  transition: opacity 0.32s ease;
 }
 .mob-nav-overlay.is-open {
   opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity 0.32s ease, visibility 0s linear 0s;
 }
 
 /* ── Drawer entrance/exit keyframes ── */
@@ -896,6 +892,7 @@ footer { position: relative; z-index: 10; }
 
 /* ── Drawer panel ── */
 .mob-nav-drawer {
+  display: none;           /* Safari: keep off the stacking context entirely until needed */
   position: fixed;
   top: 0;
   right: 0;
@@ -904,22 +901,20 @@ footer { position: relative; z-index: 10; }
   height: 100vh; /* fallback */
   background: #0d2b55;
   z-index: 1050;
-  display: flex;
   flex-direction: column;
   transform: translateX(110%);
   box-shadow: -10px 0 50px rgba(0, 0, 0, 0.45);
   will-change: transform;
   overflow: hidden;
   border-left: 1px solid rgba(245, 166, 35, 0.18);
-  pointer-events: none; /* Safari fix: don't block page when off-screen */
 }
 .mob-nav-drawer.is-open {
+  display: flex;
   animation: mnDrawerIn 0.52s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  pointer-events: auto;
 }
 .mob-nav-drawer.is-closing {
+  display: flex;
   animation: mnDrawerOut 0.28s cubic-bezier(0.55, 0, 1, 0.45) forwards;
-  pointer-events: none;
 }
 
 /* ── Drawer top header ── */

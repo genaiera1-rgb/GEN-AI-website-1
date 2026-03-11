@@ -276,13 +276,17 @@
 
   function openDrawer() {
     isOpen = true;
+    // Show elements first (display:none → display:flex/block), force reflow, THEN add
+    // .is-open so CSS opacity/animation transitions fire correctly in Safari
+    overlay.style.display = 'block';
+    drawer.style.display  = 'flex';
+    overlay.offsetHeight; // force reflow
     drawer.classList.remove('is-closing');
     drawer.classList.add('is-open');
     overlay.classList.add('is-open');
     toggle.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
     drawer.setAttribute('aria-hidden', 'false');
-    overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
@@ -295,12 +299,18 @@
     toggle.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     drawer.setAttribute('aria-hidden', 'true');
-    overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     drawer.style.transform = '';
-    drawer.addEventListener('animationend', function handler() {
+    // After overlay fades out, remove from display so Safari can't intercept taps
+    overlay.addEventListener('transitionend', function hideOverlay() {
+      overlay.style.display = 'none';
+      overlay.removeEventListener('transitionend', hideOverlay);
+    });
+    // After drawer slides out, remove from display too
+    drawer.addEventListener('animationend', function hideDrawer() {
       drawer.classList.remove('is-closing');
-      drawer.removeEventListener('animationend', handler);
+      drawer.style.display = 'none';
+      drawer.removeEventListener('animationend', hideDrawer);
     });
   }
 
