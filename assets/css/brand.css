@@ -813,3 +813,270 @@ footer { position: relative; z-index: 10; }
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 .footer-social a i { pointer-events: none; }
+
+/* ============================================================
+   20. MOBILE NAV DRAWER  (screens < 900px)
+   ============================================================ */
+
+/* ── On desktop: hide drawer chrome ── */
+@media (min-width: 900px) {
+  .mob-nav-toggle  { display: none !important; }
+  .mob-nav-overlay { display: none !important; }
+  .mob-nav-drawer  { display: none !important; }
+}
+
+/* ── On mobile: hide Bootstrap's built-in toggler + collapse ── */
+@media (max-width: 899px) {
+  .navbar-toggler   { display: none !important; }
+  #navbarMain       { display: none !important; }
+}
+
+/* ── Custom hamburger ── */
+.mob-nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 34px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+.mob-nav-bar {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 99px;
+  transform-origin: center;
+  transition:
+    transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity   0.22s ease,
+    width     0.3s  ease;
+}
+.mob-nav-toggle.is-open .bar1 { transform: translateY(10.75px) rotate(45deg); }
+.mob-nav-toggle.is-open .bar2 { opacity: 0; transform: scaleX(0); }
+.mob-nav-toggle.is-open .bar3 { transform: translateY(-10.75px) rotate(-45deg); }
+
+/* ── Frosted overlay ── */
+.mob-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 12, 30, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1049;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.32s ease, visibility 0s linear 0.32s;
+}
+.mob-nav-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.32s ease, visibility 0s linear 0s;
+}
+
+/* ── Drawer entrance/exit keyframes ── */
+@keyframes mnDrawerIn {
+  0%   { transform: translateX(100%); }
+  62%  { transform: translateX(-10px); }
+  82%  { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+@keyframes mnDrawerOut {
+  from { transform: translateX(0); }
+  to   { transform: translateX(110%); }
+}
+
+/* ── Drawer panel ── */
+.mob-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(310px, 88vw);
+  height: 100dvh;
+  height: 100vh; /* fallback */
+  background: #0d2b55;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(110%);
+  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.45);
+  will-change: transform;
+  overflow: hidden;
+  border-left: 1px solid rgba(245, 166, 35, 0.18);
+}
+.mob-nav-drawer.is-open {
+  animation: mnDrawerIn 0.52s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.mob-nav-drawer.is-closing {
+  animation: mnDrawerOut 0.28s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+/* ── Drawer top header ── */
+.mob-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px 16px;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.15);
+}
+.mob-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.mob-nav-brand img {
+  height: 30px;
+  width: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+.mob-nav-brand span {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+}
+.mob-nav-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.mob-nav-close:hover { background: rgba(255, 255, 255, 0.2); color: #fff; }
+
+/* ── Link list ── */
+.mob-nav-links {
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+/* Staggered slide-in — links start hidden, revealed when drawer opens */
+.mob-nav-links li {
+  opacity: 0;
+  transform: translateX(28px);
+}
+.mob-nav-drawer.is-open .mob-nav-links li {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity   0.35s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(1)  { transition-delay: 0.11s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(2)  { transition-delay: 0.17s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(3)  { transition-delay: 0.22s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(4)  { transition-delay: 0.27s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(5)  { transition-delay: 0.32s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(6)  { transition-delay: 0.37s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(7)  { transition-delay: 0.42s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(8)  { transition-delay: 0.46s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(9)  { transition-delay: 0.50s; }
+.mob-nav-drawer.is-open .mob-nav-links li:nth-child(10) { transition-delay: 0.54s; }
+
+.mob-nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  letter-spacing: 0.15px;
+  transition:
+    color        0.2s ease,
+    background   0.2s ease,
+    border-color 0.2s ease,
+    padding-left 0.22s ease;
+}
+.mob-nav-links a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+  border-left-color: #f5a623;
+  padding-left: 28px;
+}
+/* Glowing active state */
+.mob-nav-links a.active {
+  color: #f5a623;
+  border-left-color: #f5a623;
+  background: rgba(245, 166, 35, 0.12);
+  font-weight: 700;
+  text-shadow: 0 0 14px rgba(245, 166, 35, 0.65), 0 0 28px rgba(245, 166, 35, 0.3);
+  padding-left: 28px;
+}
+
+/* Subtle divider between sections */
+.mob-nav-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 6px 20px;
+}
+
+/* ── Pinned CTA buttons ── */
+.mob-nav-cta {
+  padding: 16px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.12);
+}
+.mob-cta-primary {
+  display: block;
+  text-align: center;
+  padding: 13px 20px;
+  background: #f5a623;
+  color: #0d2b55;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(245, 166, 35, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mob-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(245, 166, 35, 0.60);
+  color: #0d2b55;
+}
+.mob-cta-secondary {
+  display: block;
+  text-align: center;
+  padding: 12px 20px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.mob-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}

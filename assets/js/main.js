@@ -256,3 +256,92 @@
     } catch(err){ /* ignore errors */ }
   });
 })();
+
+// ─────────────────────────────────────────────
+// Mobile Nav Drawer (< 900px)
+// ─────────────────────────────────────────────
+(function(){
+  'use strict';
+
+  var toggle  = document.getElementById('mobNavToggle');
+  var drawer  = document.getElementById('mobNavDrawer');
+  var overlay = document.getElementById('mobNavOverlay');
+  var closeBtn = document.getElementById('mobNavClose');
+
+  if (!toggle || !drawer || !overlay) return;
+
+  var isOpen = false;
+  var touchStartX = 0;
+  var touchCurrentX = 0;
+
+  function openDrawer() {
+    isOpen = true;
+    drawer.classList.remove('is-closing');
+    drawer.classList.add('is-open');
+    overlay.classList.add('is-open');
+    toggle.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!isOpen) return;
+    isOpen = false;
+    drawer.classList.remove('is-open');
+    drawer.classList.add('is-closing');
+    overlay.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    drawer.style.transform = '';
+    drawer.addEventListener('animationend', function handler() {
+      drawer.classList.remove('is-closing');
+      drawer.removeEventListener('animationend', handler);
+    });
+  }
+
+  toggle.addEventListener('click', function() {
+    if (isOpen) { closeDrawer(); } else { openDrawer(); }
+  });
+
+  if (closeBtn) { closeBtn.addEventListener('click', closeDrawer); }
+  overlay.addEventListener('click', closeDrawer);
+
+  // Close on any nav link tap (slight delay so page can start navigating)
+  drawer.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { setTimeout(closeDrawer, 100); });
+  });
+
+  // Swipe-right-to-dismiss
+  drawer.addEventListener('touchstart', function(e) {
+    touchStartX   = e.touches[0].clientX;
+    touchCurrentX = touchStartX;
+  }, { passive: true });
+
+  drawer.addEventListener('touchmove', function(e) {
+    touchCurrentX = e.touches[0].clientX;
+    var delta = touchCurrentX - touchStartX;
+    if (delta > 0) {
+      drawer.style.transform = 'translateX(' + delta + 'px)';
+      // Fade overlay proportionally
+      var ratio = Math.max(0, 1 - delta / 220);
+      overlay.style.opacity = ratio;
+    }
+  }, { passive: true });
+
+  drawer.addEventListener('touchend', function() {
+    var delta = touchCurrentX - touchStartX;
+    overlay.style.opacity = '';
+    drawer.style.transform = '';
+    if (delta > 80) { closeDrawer(); }
+  }, { passive: true });
+
+  // ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isOpen) { closeDrawer(); }
+  });
+})();

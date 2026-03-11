@@ -169,8 +169,10 @@
             <img class="logo-img" src="assets/images/logo.png" alt="GenAI‑ERA logo" loading="eager" decoding="async" />
             <span class="brand-text">GenAI‑ERA</span>
           </a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  <button class="mob-nav-toggle" id="mobNavToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobNavDrawer">
+            <span class="mob-nav-bar bar1"></span>
+            <span class="mob-nav-bar bar2"></span>
+            <span class="mob-nav-bar bar3"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -951,6 +953,34 @@
     </footer>
 
   <!-- Scripts: fixed vendor paths and consolidated app logic -->
+  <!-- Mobile Nav Overlay -->
+  <div class="mob-nav-overlay" id="mobNavOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile Nav Drawer -->
+  <nav class="mob-nav-drawer" id="mobNavDrawer" aria-label="Mobile navigation" aria-hidden="true" role="dialog">
+    <div class="mob-nav-header">
+      <a class="mob-nav-brand" href="#top" aria-label="GenAI‑ERA home">
+        <img src="assets/images/logo.png" alt="GenAI‑ERA logo" />
+        <span>GenAI‑ERA</span>
+      </a>
+      <button class="mob-nav-close" id="mobNavClose" aria-label="Close navigation menu"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div>
+    <ul class="mob-nav-links">
+      <li><a class="active" href="#top">Home</a></li>
+      <li><a href="#vision-block">Services</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="news.html">News &amp; Blog</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#research">Publications</a></li>
+      <li><a href="#grants">Grant Opportunities</a></li>
+    </ul>
+    <div class="mob-nav-cta">
+      <a href="#contact" class="mob-cta-primary">Partner with Us</a>
+      <a href="tools.html" class="mob-cta-secondary">Explore AI Tools</a>
+    </div>
+  </nav>
+
   <script src="vendor/jquerry/jquery.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
   <script src="assets/js/isotope.min.js"></script>
