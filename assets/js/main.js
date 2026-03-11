@@ -270,17 +270,20 @@
 
   if (!toggle || !drawer || !overlay) return;
 
-  var isOpen = false;
+  var isOpen     = false;
+  var closeTimer = null;
   var touchStartX = 0;
   var touchCurrentX = 0;
 
   function openDrawer() {
+    // Cancel any pending hide from a previous close so we don't race
+    clearTimeout(closeTimer);
     isOpen = true;
-    // Show elements first (display:none → display:flex/block), force reflow, THEN add
-    // .is-open so CSS opacity/animation transitions fire correctly in Safari
+    // display:none → block/flex first, then force reflow so CSS transitions
+    // start from the correct initial value (required for Safari)
     overlay.style.display = 'block';
     drawer.style.display  = 'flex';
-    overlay.offsetHeight; // force reflow
+    void overlay.offsetWidth; // force reflow
     drawer.classList.remove('is-closing');
     drawer.classList.add('is-open');
     overlay.classList.add('is-open');
@@ -301,17 +304,13 @@
     drawer.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     drawer.style.transform = '';
-    // After overlay fades out, remove from display so Safari can't intercept taps
-    overlay.addEventListener('transitionend', function hideOverlay() {
-      overlay.style.display = 'none';
-      overlay.removeEventListener('transitionend', hideOverlay);
-    });
-    // After drawer slides out, remove from display too
-    drawer.addEventListener('animationend', function hideDrawer() {
+    // Use a fixed timeout matching the longest animation (overlay 320ms, drawer 280ms).
+    // Avoids transitionend/animationend race conditions that break on rapid open/close.
+    closeTimer = setTimeout(function() {
       drawer.classList.remove('is-closing');
-      drawer.style.display = 'none';
-      drawer.removeEventListener('animationend', hideDrawer);
-    });
+      drawer.style.display  = 'none';
+      overlay.style.display = 'none';
+    }, 380);
   }
 
   toggle.addEventListener('click', function() {
