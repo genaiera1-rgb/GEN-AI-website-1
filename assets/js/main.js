@@ -86,18 +86,27 @@
   // Isotope filters (if library present)
   function initIsotope(){
     if(typeof Isotope === 'undefined') return;
+
+    // Programs isotope
     var grid = document.querySelector('.event_box');
-    if(!grid) return;
-  var iso = new Isotope(grid, { itemSelector: '.event_outer', layoutMode: 'fitRows', transitionDuration: 150 });
-    document.querySelectorAll('.event_filter a').forEach(function(btn){
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        document.querySelectorAll('.event_filter a').forEach(function(b){ b.classList.remove('is_active'); });
-        btn.classList.add('is_active');
-        var filterValue = btn.getAttribute('data-filter') || '*';
-        iso.arrange({ filter: filterValue });
+    if(grid) {
+      var iso = new Isotope(grid, { itemSelector: '.event_outer', layoutMode: 'fitRows', transitionDuration: 150 });
+      document.querySelectorAll('.event_filter a').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          document.querySelectorAll('.event_filter a').forEach(function(b){ b.classList.remove('is_active'); });
+          btn.classList.add('is_active');
+          var filterValue = btn.getAttribute('data-filter') || '*';
+          iso.arrange({ filter: filterValue });
+        });
       });
-    });
+    }
+
+    // Events Masonry
+    var masonryGrid = document.querySelector('.event-masonry-layout');
+    if (masonryGrid) {
+      new Isotope(masonryGrid, { itemSelector: '.event-masonry-item', percentPosition: true, layoutMode: 'masonry' });
+    }
   }
   window.addEventListener('load', initIsotope);
 
