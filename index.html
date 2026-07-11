@@ -148,6 +148,107 @@
       .news-section-footer .btn-visit-news:hover .arrow {
         transform: translateX(4px);
       }
+
+      /* Volunteer promotion block */
+      .volunteer-promo {
+        display: grid;
+        grid-template-columns: minmax(220px, 320px) 1fr;
+        gap: 0;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #fff;
+        border: 1px solid rgba(13,59,102,0.12);
+        box-shadow: 0 12px 28px rgba(13,59,102,0.12);
+        margin-bottom: 28px;
+      }
+      .volunteer-promo-media {
+        background: linear-gradient(135deg, rgba(13,59,102,0.9), rgba(247,147,30,0.92));
+        padding: 14px;
+      }
+      .volunteer-promo-media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 240px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+      .volunteer-promo-content {
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+      }
+      .volunteer-promo .promo-tag {
+        display: inline-flex;
+        align-self: flex-start;
+        align-items: center;
+        background: rgba(247,147,30,0.12);
+        color: var(--brand-orange);
+        font-size: .72rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 999px;
+      }
+      .volunteer-promo h4 {
+        margin: 0;
+        color: var(--brand-navy);
+        font-size: 1.65rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+      .volunteer-promo p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.75;
+      }
+      .volunteer-promo .promo-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+      .volunteer-promo .btn-promo-primary,
+      .volunteer-promo .btn-promo-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        padding: 11px 18px;
+        font-size: .9rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform .2s ease, background .2s ease, color .2s ease;
+      }
+      .volunteer-promo .btn-promo-primary {
+        background: var(--brand-orange);
+        color: #fff;
+      }
+      .volunteer-promo .btn-promo-primary:hover {
+        background: #d97b0a;
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .volunteer-promo .btn-promo-secondary {
+        background: rgba(13,59,102,0.06);
+        color: var(--brand-navy);
+      }
+      .volunteer-promo .btn-promo-secondary:hover {
+        background: rgba(13,59,102,0.12);
+        color: var(--brand-navy);
+        transform: translateY(-2px);
+      }
+      @media (max-width: 991.98px) {
+        .volunteer-promo {
+          grid-template-columns: 1fr;
+        }
+        .volunteer-promo-media img {
+          min-height: 220px;
+        }
+      }
     </style>
   </head>
 
@@ -566,6 +667,26 @@
               <div class="news-announce-actions">
                 <a href="#" class="btn-article" data-bs-toggle="modal" data-bs-target="#modal-google-scholar-profile">Read full article</a>
                 <a href="news.html" class="btn-news">Visit News &amp; Blog &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <div class="volunteer-promo reveal-up" style="--reveal-delay:.02s">
+              <div class="volunteer-promo-media">
+                <img src="assets/images/promotion-01.jpeg" alt="Call for tech volunteers promotion flyer" loading="lazy" decoding="async" />
+              </div>
+              <div class="volunteer-promo-content">
+                <span class="promo-tag">Call for Tech Volunteers</span>
+                <h4>Help GenAI‑ERA build the next wave of digital learning support.</h4>
+                <p>We’re inviting developers, designers, automation helpers, and tech-savvy volunteers to support our website, tools, events, and outreach work across Africa.</p>
+                
+                <div class="promo-actions">
+                  <a class="btn-promo-primary" href="#contact">Volunteer Now</a>
+                  <a class="btn-promo-secondary" href="mailto:genaiera1@gmail.com">Email Us</a>
+                </div>
               </div>
             </div>
           </div>
