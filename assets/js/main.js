@@ -102,11 +102,6 @@
       });
     }
 
-    // Events Masonry
-    var masonryGrid = document.querySelector('.event-masonry-layout');
-    if (masonryGrid) {
-      new Isotope(masonryGrid, { itemSelector: '.event-masonry-item', percentPosition: true, layoutMode: 'masonry' });
-    }
   }
   window.addEventListener('load', initIsotope);
 
