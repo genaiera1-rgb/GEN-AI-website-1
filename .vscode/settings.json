@@ -1,4 +1,11 @@
 {
     "livePreview.defaultPreviewPath": "/index.html",
-    "mobile-preview.url": "C:/Users/user/OneDrive/Desktop/GEN-AI-website-1"
+    "mobile-preview.url": "C:/Users/user/OneDrive/Desktop/GEN-AI-website-1",
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:system",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
 }

@@ -1,0 +1,14 @@
+# OS / editor cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+
+# Partial browser downloads
+*.crdownload
+*.part
+
+# Local tooling
+.claude/
+node_modules/

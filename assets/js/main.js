@@ -9,9 +9,13 @@
     if(pre){ setTimeout(function(){ pre.classList.add('loaded'); }, 300); }
   });
 
-  // Smooth scroll and active link highlighting
+  // Smooth scroll and active link highlighting.
+  // Derived from the nav itself so the list can never drift out of sync with the markup.
   function setActiveLink(){
-    var sections = ['top','vision-block','events','videos','programs','research','grants','team','tools','contact'];
+    var sections = Array.prototype.map.call(
+      document.querySelectorAll('.navbar a[href^="#"]'),
+      function(a){ return a.getAttribute('href').slice(1); }
+    ).filter(Boolean);
     var scrollPos = window.scrollY + 100;
     sections.forEach(function(id){
       var sec = document.getElementById(id);
@@ -82,6 +86,35 @@
     });
   }
   window.addEventListener('load', initHeroArrows);
+
+  // Whole-card activation for Publications / Grants cards.
+  //
+  // These used to carry inline onclick handlers that re-clicked the card's own
+  // .stretched-link. Because the stretched-link covers the entire card, every
+  // click hit the anchor first and then bubbled into the handler, which clicked
+  // it a second time — target="_blank" cards opened two tabs. Handling it here
+  // (and only when the click did NOT originate from a link) fixes that.
+  document.addEventListener('click', function(e){
+    if(!e.target || !e.target.closest) return;
+    if(e.target.closest('a, button')) return;            // real link/button already handled it
+    var card = e.target.closest('.resource-card');
+    if(!card) return;
+    var link = card.querySelector('a.stretched-link');
+    if(link) link.click();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    if(!e.target || !e.target.classList || !e.target.classList.contains('resource-card')) return;
+    var link = e.target.querySelector('a.stretched-link');
+    if(link){ e.preventDefault(); link.click(); }
+  });
+
+  // Footer copyright year, so it never goes stale
+  document.addEventListener('DOMContentLoaded', function(){
+    var slots = document.querySelectorAll('[data-current-year]');
+    var year = new Date().getFullYear();
+    Array.prototype.forEach.call(slots, function(el){ el.textContent = year; });
+  });
 
   // Isotope filters (if library present)
   function initIsotope(){
@@ -278,6 +311,30 @@
   var closeTimer = null;
   var touchStartX = 0;
   var touchCurrentX = 0;
+  var lastFocused = null;
+
+  function focusables() {
+    return Array.prototype.filter.call(
+      drawer.querySelectorAll('a[href], button:not([disabled])'),
+      function(el){ return el.offsetParent !== null; }
+    );
+  }
+
+  // Keep Tab inside the drawer while it is open — it is a modal dialog.
+  function trapFocus(e) {
+    if (e.key !== 'Tab' || !isOpen) return;
+    var items = focusables();
+    if (!items.length) return;
+    var first = items[0];
+    var last  = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 
   function openDrawer() {
     // Cancel any pending hide from a previous close so we don't race
@@ -294,12 +351,21 @@
     toggle.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
     drawer.setAttribute('aria-hidden', 'false');
+    drawer.setAttribute('aria-modal', 'true');
     document.body.style.overflow = 'hidden';
+    lastFocused = document.activeElement;
+    var items = focusables();
+    if (items.length) { items[0].focus(); }
+    document.addEventListener('keydown', trapFocus);
   }
 
   function closeDrawer() {
     if (!isOpen) return;
     isOpen = false;
+    document.removeEventListener('keydown', trapFocus);
+    drawer.removeAttribute('aria-modal');
+    if (lastFocused && lastFocused.focus) { lastFocused.focus(); }
+    lastFocused = null;
     drawer.classList.remove('is-open');
     drawer.classList.add('is-closing');
     overlay.classList.remove('is-open');
