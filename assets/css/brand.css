@@ -28,6 +28,10 @@ body {
   padding-top: 72px;
 }
 
+picture {
+  display: contents;
+}
+
 /* Scroll margin so the fixed navbar doesn't cover section headings.
    Scoped to the nav targets on purpose — a blanket [id] rule also lands on
    .hero-block, whose scroll-snap-align then mis-snaps the horizontal hero. */
